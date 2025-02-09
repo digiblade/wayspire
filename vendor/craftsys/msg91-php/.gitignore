@@ -1,8 +1,0 @@
-.idea
-composer.lock
-vendor
-logs
-.php_cs.cache
-.phpunit.result.cache
-.phpunit.cache
-.DS_Store
