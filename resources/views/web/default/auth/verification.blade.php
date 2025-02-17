@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row login-container">
+        <div class="row login-container" style="background-color: white">
             <div class="col-12 col-md-6 pl-0">
                 <img src="{{ getPageBackgroundSettings('verification') }}" class="img-cover" alt="Login">
             </div>
