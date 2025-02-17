@@ -61,7 +61,7 @@ class JobPostController extends Controller
         ];
         return view(getTemplate() . '.pages.job_post_description', $data);
     }
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $request->validate([
             'job_post_id' => 'required|exists:job_posts,id',
@@ -75,7 +75,7 @@ class JobPostController extends Controller
         $resumePath = $request->file('resume')->store('resumes', 'public');
 
         JobApplication::create([
-            'job_post_id' => $request->job_post_id,
+            'job_post_id' => $id,
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
