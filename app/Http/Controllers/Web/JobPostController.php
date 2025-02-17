@@ -27,7 +27,9 @@ class JobPostController extends Controller
         $job_post_query = JobPost::select('job_posts.*', 'users.full_name as company_name')
             ->join('users', 'users.id', '=', 'job_posts.company_id')
             ->where('users.role_name', 'company')
-            ->where('job_posts.status', 'active')->orderBy('job_posts.created_at', 'desc')
+            ->where('job_posts.status', 'active')
+            ->where('job_posts.company_id', auth()->id())
+            ->orderBy('job_posts.created_at', 'desc')
             ->get();
         $sort = $request->get('sort', null);
         $pageTitle = "Jobs";
