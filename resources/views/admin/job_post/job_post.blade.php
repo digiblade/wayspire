@@ -120,13 +120,13 @@
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                 @endcan
-                                                @can('admin_users_edit')
-                                                    <a href="{{ getAdminPanelUrl() }}/custom/applications/{{ $user->id }}"
-                                                        class="btn-transparent  text-primary" data-toggle="tooltip"
-                                                        data-placement="top" title="{{ trans('admin/main.edit') }}">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                @endcan
+
+                                                <a href="{{ getAdminPanelUrl() }}/custom/applications/{{ $user->id }}"
+                                                    class="btn-transparent  text-primary" data-toggle="tooltip"
+                                                    data-placement="top" title="{{ trans('admin/main.edit') }}">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+
 
                                                 {{-- @can('admin_users_delete')
                                                     @include('admin.includes.delete_button', [
