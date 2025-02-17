@@ -242,6 +242,11 @@ Route::group(['namespace' => 'Web', 'middleware' => ['check_mobile_app', 'impers
 
     Route::get('/classes', 'ClassesController@index');
 
+
+    Route::get('/jobpost', 'JobPostController@index');
+    Route::get('/jobpost/description/{id}', 'JobPostController@description');
+    Route::post('/jobpost/application/{id}', 'JobPostController@store');
+
     Route::get('/reward-courses', 'RewardCoursesController@index');
 
     Route::group(['prefix' => 'blog'], function () {
