@@ -117,6 +117,9 @@
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/blog/about">About</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white" href="/jobpost">Career</a>
+                        </li>
                     </ul>
                 </div>
             </span>

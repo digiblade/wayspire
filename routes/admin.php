@@ -171,6 +171,29 @@ Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web
             });
         });
 
+        Route::group(['prefix' => 'custom'], function () {
+            Route::get('/job-post', 'CustomController@index');
+            Route::get('/applications/{id}', 'CustomController@applications');
+            Route::get('/create', 'CustomController@create');
+            Route::post('/store', 'CustomController@store');
+            Route::get('/{id}/edit', 'CustomController@edit');
+            Route::post('/{id}/update', 'CustomController@update');
+            Route::get('/{id}/delete', 'CustomController@delete');
+
+            Route::get('/{id}/close', 'SupportsController@conversationClose');
+            Route::get('/{id}/conversation', 'SupportsController@conversation');
+            Route::post('/{id}/conversation', 'SupportsController@storeConversation');
+
+            Route::group(['prefix' => 'departments'], function () {
+                Route::get('/', 'SupportDepartmentsController@index');
+                Route::get('/create', 'SupportDepartmentsController@create');
+                Route::post('/store', 'SupportDepartmentsController@store');
+                Route::get('/{id}/edit', 'SupportDepartmentsController@edit');
+                Route::post('/{id}/update', 'SupportDepartmentsController@update');
+                Route::get('/{id}/delete', 'SupportDepartmentsController@delete');
+            });
+        });
+
         Route::group(['prefix' => 'noticeboards'], function () {
             Route::get('/', 'NoticeboardController@index');
             Route::get('/send', 'NoticeboardController@create');
@@ -476,7 +499,6 @@ Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web
         Route::group(['prefix' => 'consultants'], function () {
             Route::get('/', 'ConsultantsController@index');
             Route::get('/excel', 'ConsultantsController@exportExcel');
-
         });
 
         Route::group(['prefix' => 'appointments'], function () {
@@ -1133,7 +1155,6 @@ Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web
             });
 
             Route::post("/{form_id}/submissions/{id}/update", 'FormSubmissionsController@update');
-
         });
 
         Route::group(['prefix' => 'ai-contents'], function () {
@@ -1151,7 +1172,6 @@ Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web
                 Route::get('/{id}/delete', 'AIContentTemplatesController@delete');
                 Route::get('/{id}/statusToggle', 'AIContentTemplatesController@statusToggle');
             });
-
         });
 
         Route::group(['prefix' => 'purchase_notifications'], function () {
