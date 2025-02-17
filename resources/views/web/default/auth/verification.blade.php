@@ -1,4 +1,4 @@
-@extends(getTemplate().'.layouts.app')
+@extends(getTemplate() . '.layouts.app')
 
 @section('content')
     <div class="container">
@@ -9,10 +9,10 @@
 
             <div class="col-12 col-md-6">
 
-                <div class="login-card">
+                <div class="login-card" style="background-color: white">
                     <h1 class="font-20 font-weight-bold">{{ trans('auth.account_verification') }}</h1>
 
-                    <p>{{ trans('auth.account_verification_hint',['username' => $username]) }}</p>
+                    <p>{{ trans('auth.account_verification_hint', ['username' => $username]) }}</p>
                     <form method="post" action="/verification" class="mt-35">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -20,16 +20,17 @@
 
                         <div class="form-group">
                             <label class="input-label" for="code">{{ trans('auth.code') }}:</label>
-                            <input type="tel" name="code" class="form-control @error('code') is-invalid @enderror" id="code"
-                                   aria-describedby="codeHelp">
+                            <input type="tel" name="code" class="form-control @error('code') is-invalid @enderror"
+                                id="code" aria-describedby="codeHelp">
                             @error('code')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block mt-20">{{ trans('auth.verification') }}</button>
+                        <button type="submit"
+                            class="btn btn-primary btn-block mt-20">{{ trans('auth.verification') }}</button>
                     </form>
 
                     <div class="text-center mt-20">
