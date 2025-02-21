@@ -219,7 +219,7 @@
                         .custom-carousel-caption {
                             /* position: absolute; */
                             /* bottom: 10%;
-                                                                                                                                        left: 50%; */
+                                                                                                                                                                                                        left: 50%; */
                             /* transform: translateX(-50%); */
                             color: white;
                             /* text-align: center; */
@@ -740,7 +740,6 @@
             </div>
         </div>
     </section>
-
 
     {{-- Statistics --}}
     @include('web.default.pages.includes.home_statistics')
@@ -1823,41 +1822,86 @@
                 </div>
             </div>
         </div>
-        <div
-            style="
-      margin-top: 9rem;
-      height: 20rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    ">
+        <div style="margin-top: 9rem;height: 20rem;display: flex;flex-direction: column;justify-content: center;">
             <img src="./assets/default/img/custom-imgs/timeline.png" alt="Timeline" />
         </div>
         <div
-            style="
-      position: absolute;
-      z-index: -10;
-      top: 25%;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(
-        circle,
-        #141414c8 20%,
-        #171717 30% /* Primary Blue */
-      );
-    ">
+            style="position: absolute;z-index: -10;top: 25%;left: 0;display: flex;justify-content: center;align-items: center;inset: 0;width: 100%;height: 100%;background: radial-gradient(circle,#141414c8 20%,#171717 30% /* Primary Blue */);">
             <img src="./assets/default/img/custom-imgs/mapPattern.png" alt="Map Pattern" />
         </div>
     </div>
 
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 96px; margin-bottom: 64px;">
+        <div style="width: 40%;">
+            <img src="/assets/default/img/custom-imgs/pattern3.png" alt="" style="width: 100%;">
+        </div>
+        <div style="width: 50%; color: white;">
+            <div style="padding: 48px 0;">
+                <span
+                    style="background-color: #1E90FF; color: white; padding: 8px 32px; border-radius: 9999px;">FAQuestions</span>
+                <h1 style="font-size: 40px; font-weight: bold; margin-top: 16px;">Frequently Asked Questions</h1>
+                <h1 style="font-size: 40px; font-weight: bold; margin-top: 16px;">(About AI Study In UI Design)</h1>
+                <h1 style="font-size: 18px; margin-top: 16px;">On The Other Hand, We Denounce With Righteous Indignation
+                    And Dislike</h1>
+                <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
+                    <div>
+                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer; background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
+                            onclick="toggleAccordion(this)">
+                            Human-Computer Interaction (HCI)</h2>
+                        <p
+                            style="display: none;  background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
+                            On
+                            the other hand, we denounce with righteous indignation and dislike men
+                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer;  background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
+                            onclick="toggleAccordion(this)">
+                            Data Visualization and Communication</h2>
+                        <p
+                            style="display: none;background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
+                            On the other hand, we denounce with righteous indignation and dislike men
+                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer;  background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
+                            onclick="toggleAccordion(this)">
+                            Natural Language Processing (NLP)</h2>
+                        <p
+                            style="display: none; background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
+                            On the other hand, we denounce with righteous indignation and dislike men
+                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer; background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
+                            onclick="toggleAccordion(this)">
+                            What kind of jobs can UI/UX Design skills get me?</h2>
+                        <p
+                            style="display: none; background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
+                            On the other hand, we denounce with righteous indignation and dislike men
+                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        function toggleAccordion(element) {
+            var content = element.nextElementSibling;
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
 
 @endsection
+
+
+
+
 
 @push('scripts_bottom')
     <script src="/assets/default/vendors/swiper/swiper-bundle.min.js"></script>
