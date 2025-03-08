@@ -158,17 +158,32 @@
                             </div>
 
                             <!-- Carousel Items -->
+
+
+
                             <div class="custom-carousel-inner">
-                                <div class="custom-carousel-item active p-4" style="display:flex;">
-                                    <div class="custom-carousel-caption" style="width:50%">
-                                        <h2 class="fw-bold" style="font-size:4rem">UI/UX</h2>
-                                        <p>There are many variations of passages of Lorem Ipsum available.</p>
-                                        <button class="custom-carousel-btn mt-16" style="margin: 2rem 0">View Courses
-                                            →</button>
+                                @foreach ($carousel as $bestSaleWebinar)
+                                    {{-- <div class="swiper-slide">
+                                        @include('web.default.includes.webinar.grid-card', [
+                                            'webinar' => $bestSaleWebinar,
+                                        ])
+                                    </div> --}}
+                                    <div class="custom-carousel-item active p-4" style="display:flex;">
+                                        <div class="custom-carousel-caption"
+                                            style="width:50%; height:100%;display:flex; flex-direction:column; gap:1rem">
+                                            <h2 class="fw-bold" style="font-size:2rem">
+                                                {{ $bestSaleWebinar->category->title }}</h2>
+                                            <p>{{ $bestSaleWebinar->title }}</p>
+                                            <a style="background-color:#f97316; border-radius:2rem; padding:0.4rem 0.8rem; width:min-content;text-wrap:nowrap"
+                                                href="{{ $bestSaleWebinar->getUrl() }}" class=" mt-24"
+                                                style="margin: 2rem 0">View Courses
+                                                →</a>
+                                        </div>
+                                        <img style="width:50%" src="{{ $bestSaleWebinar->getImage() }}" alt="Slide 1">
                                     </div>
-                                    <img src="./assets/default/img/custom-imgs/banner1.png" alt="Slide 1">
-                                </div>
-                                <div class="custom-carousel-item p-4" style="display:flex;">
+                                @endforeach
+
+                                {{-- <div class="custom-carousel-item p-4" style="display:flex;">
                                     <div class="custom-carousel-caption" style="width:50%">
                                         <h2 class="fw-bold" style="font-size:4rem">Web</h2>
                                         <p>There are many variations of passages of Lorem Ipsum available.</p>
@@ -183,7 +198,7 @@
                                         <button class="custom-carousel-btn" style="margin: 2rem 0">View Courses →</button>
                                     </div>
                                     <img src="./assets/default/img/custom-imgs/banner1.png" alt="Slide 3">
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -219,7 +234,7 @@
                         .custom-carousel-caption {
                             /* position: absolute; */
                             /* bottom: 10%;
-                                                                                                                                                                                                        left: 50%; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 50%; */
                             /* transform: translateX(-50%); */
                             color: white;
                             /* text-align: center; */
@@ -421,7 +436,341 @@
     @endif
 
 
+    <section class="container">
+        <div style="display: flex; padding: 1rem 24px; justify-content: space-between; gap: 16px; color:white">
+            <div style="width:30%">
+                <h1 style="font-size: 3rem;">What We Offer</h1>
+                <div style="font-size: 1.4rem; margin-top: 12px;">It's All About Design Courses.</div>
+                <div style="font-size: 1.4rem; margin-bottom: 12px;">Because Thats What We Do.</div>
+                <button
+                    style="display: inline-flex; background-color: #f97316; padding: 8px 16px; border-radius: 9999px; align-items: center; gap: 4px; color: black; border: none; cursor: pointer;">
+                    Explore More →
+                </button>
+            </div>
+            <div style="flex: 1;">
+                <div style="display: flex; flex-direction: row; gap: 16px; min-height: 96px;">
+                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
+                        <div>
+                            <div
+                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                <span style="font-size: 3rem;">
+                                    <!-- Replace this with your actual icon -->
+                                    <img src="/assets/default/img/custom-imgs/mobile.png" alt="Icon 1"
+                                        style="width: 100%;" />
+                                </span>
+                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                    style="width: 12px; " />
+                            </div>
+                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Training & Internship
+                            </h3>
+                        </div>
+                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
+                    </div>
 
+                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;"
+                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
+                        <div>
+                            <div
+                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                <span style="font-size: 3rem;">
+                                    <!-- Replace this with your actual icon -->
+                                    <img src="/assets/default/img/custom-imgs/hourglass.png" alt="Icon 2"
+                                        style="width: 100%;" />
+                                </span>
+                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                    style="" />
+                            </div>
+                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Placement Assistance
+                            </h3>
+                        </div>
+                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
+                    </div>
+
+                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;"
+                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
+                        <div>
+                            <div
+                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                <span style="font-size: 2.4rem;">
+                                    <!-- Replace this with your actual icon -->
+                                    <img src="/assets/default/img/custom-imgs/lighbulb.png" alt="Icon 3"
+                                        style="width: 100%" />
+                                </span>
+                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                    style="" />
+                            </div>
+                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Career Guidance</h3>
+                        </div>
+                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
+                    </div>
+
+                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;"
+                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
+                        <div>
+                            <div
+                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                <span style="font-size: 2.4rem;">
+                                    <!-- Replace this with your actual icon -->
+                                    <img src="/assets/default/img/custom-imgs/lighbulb.png" alt="Icon 3"
+                                        style="width: 100%" />
+                                </span>
+                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                    style="" />
+                            </div>
+                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Distance Education</h3>
+                        </div>
+                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    {{-- Collaboration section --}}
+    <section class="container" style="padding: 1rem 24px;">
+        <div style="padding: 24px 0;  position: relative; margin-bottom: 16px;">
+            <div style="width: 40%;">
+                <span
+                    style="padding: 6px 12px; border-radius: 9999px; background: linear-gradient(to right, #5B21B6, #2563EB); color: white;">
+                    Our Partner
+                </span>
+                <div style="font-size: 2.4rem; margin: 16px 0; font-weight: 600; color:white">Collaboration</div>
+                <div style="font-size: 0.8rem; color:white">
+                    Classical Latin Literature From 45 BC, Making it Over 2000 Years old.
+                    Richard McClintock, A Latin Professor At Hampden Sydney College in
+                    Virginia
+                </div>
+
+            </div>
+            <div class="d-flex gap-4"
+                style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
+                <div class="d-flex gap-4"
+                    style="display: inline-block;white-space: nowrap; animation: scroll 15s linear infinite;">
+                    <!-- Icon Card 1 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
+                        <img src="/assets/default/img/custom-imgs/0.png" alt="Next Ace"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Next Ace</span>
+                    </div>
+                    <!-- Icon Card 2 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/2.png" alt="Cubic Course"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Cubic Course</span>
+                    </div>
+                    <!-- Icon Card 3 -->
+                    <div
+                        style="margin-right: 32px; width: 20% ;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/5.png" alt="Spiritual School"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Spiritual School</span>
+                    </div>
+                    <!-- Icon Card 4 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/1.png" alt="Circuit Course"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Circuit Course</span>
+                    </div>
+
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
+                        <img src="/assets/default/img/custom-imgs/0.png" alt="Next Ace"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Next Ace</span>
+                    </div>
+                    <!-- Icon Card 2 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/2.png" alt="Cubic Course"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Cubic Course</span>
+                    </div>
+                    <!-- Icon Card 3 -->
+                    <div
+                        style="margin-right: 32px; width: 20% ;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/5.png" alt="Spiritual School"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Spiritual School</span>
+                    </div>
+                    <!-- Icon Card 4 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/1.png" alt="Circuit Course"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Circuit Course</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex gap-4"
+                style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
+                <div class="d-flex gap-4"
+                    style="display: inline-block;white-space: nowrap; animation: scrollRev 15s linear infinite;">
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
+                    </div>
+                    <!-- Icon Card 2 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
+                    </div>
+                    <!-- Icon Card 3 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
+                    </div>
+                    <!-- Icon Card 4 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
+                            style="width: 48px; aspect-ratio:1" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
+                    </div>
+
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
+                    </div>
+                    <!-- Icon Card 2 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
+                    </div>
+                    <!-- Icon Card 3 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
+                    </div>
+                    <!-- Icon Card 4 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
+                            style="width: 48px; aspect-ratio:1" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex gap-4"
+                style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
+                <div class="d-flex gap-4"
+                    style="display: inline-block;white-space: nowrap; animation: scroll 15s linear infinite;">
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
+                    </div>
+                    <!-- Icon Card 2 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
+                    </div>
+                    <!-- Icon Card 3 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
+                    </div>
+                    <!-- Icon Card 4 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
+                            style="width: 48px; aspect-ratio:1" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
+                    </div>
+
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
+                    </div>
+                    <!-- Icon Card 2 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
+                    </div>
+                    <!-- Icon Card 3 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
+                            style="width: 48px; height: 48px;" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
+                    </div>
+                    <!-- Icon Card 4 -->
+                    <div
+                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
+                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
+                            style="width: 48px; aspect-ratio:1" />
+                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div style="width: 40%;">
+
+                <div style="position: absolute; bottom: 0; right: 24px; z-index:-1">
+                    <img src="/assets/default/img/custom-imgs/pattern1.png" alt="Pattern" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div
+        style="padding: 2rem 6rem; margin-bottom: 4rem; display: flex; justify-content: space-between; align-items: start;">
+        <div style="color: white;">
+            <span
+                style="background-color: #e2e8f0; color: #2b6cb0; padding: 0.5rem 2rem; border-radius: 20px;">UpScale</span>
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Wants To UpScale</h1>
+            <div>
+                <select
+                    style="width: 100%; padding: 1rem; font-size: 1.2rem; border: 1px solid #ccc; border-radius: 5px; margin-top: 1rem;">
+                    <option>Select Your Course</option>
+                    <option>UI/UX Design</option>
+                    <option>Web Development</option>
+                    <option>App Devel opment</option>
+                </select>
+            </div>
+            <div style="margin-top: 2rem;">
+                <button
+                    style="background-color: #f97316; color: black; font-weight: bold; padding: 0.8rem 2rem; border-radius: 20px; cursor: pointer; transition: background 0.2s ease-in-out;">Explore
+                    More →</button>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:end"><img src="./assets/default/img/custom-imgs/pattern3.png"
+                style=" width: 50%" alt="Pattern">
+        </div>
+
+    </div>
+
+    {{-- What we done --}}
 
     <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9;">
 
@@ -485,261 +834,12 @@
         </div>
 
         <!-- Section 4 -->
-        <div
-            style="padding: 2rem 6rem; margin-bottom: 4rem; display: flex; justify-content: space-between; align-items: center;">
-            <div style="color: white;">
-                <span
-                    style="background-color: #e2e8f0; color: #2b6cb0; padding: 0.5rem 2rem; border-radius: 20px;">UpScale</span>
-                <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Wants To UpScale</h1>
-                <div>
-                    <select
-                        style="width: 100%; padding: 1rem; font-size: 1.2rem; border: 1px solid #ccc; border-radius: 5px; margin-top: 1rem;">
-                        <option>Select Your Course</option>
-                        <option>UI/UX Design</option>
-                        <option>Web Development</option>
-                        <option>App Development</option>
-                    </select>
-                </div>
-                <div style="margin-top: 2rem;">
-                    <button
-                        style="background-color: #f97316; color: black; font-weight: bold; padding: 0.8rem 2rem; border-radius: 20px; cursor: pointer; transition: background 0.2s ease-in-out;">Explore
-                        More →</button>
-                </div>
-            </div>
-            <div>
-                <img src="./assets/default/img/custom-imgs/pattern3.png" alt="Pattern">
-            </div>
-        </div>
+
 
     </body>
 
 
 
-
-
-    {{-- About Section --}}
-    <section class="container">
-        <div style="display: flex; padding: 1rem 24px; justify-content: space-between; gap: 16px; color:white">
-            <div style="width:50%">
-                <h1 style="font-size: 3rem;">What We Offer</h1>
-                <div style="font-size: 1.4rem; margin-top: 12px;">It's All About Design Courses.</div>
-                <div style="font-size: 1.4rem; margin-bottom: 12px;">Because Thats What We Do.</div>
-                <button
-                    style="display: inline-flex; background-color: #f97316; padding: 8px 16px; border-radius: 9999px; align-items: center; gap: 4px; color: black; border: none; cursor: pointer;">
-                    Explore More →
-                </button>
-            </div>
-            <div style="flex: 1;">
-                <div style="display: flex; flex-direction: row; gap: 16px; min-height: 96px;">
-                    <div
-                        style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;">
-                        <div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                                <span style="font-size: 3rem;">
-                                    <!-- Replace this with your actual icon -->
-                                    <img src="/assets/default/img/custom-imgs/mobile.png" alt="Icon 1"
-                                        style="width: 100%;" />
-                                </span>
-                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
-                                    style="width: 12px; " />
-                            </div>
-                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Career Navigation
-                                Program
-                            </h3>
-                        </div>
-                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
-                    </div>
-
-                    <div
-                        style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;">
-                        <div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                                <span style="font-size: 3rem;">
-                                    <!-- Replace this with your actual icon -->
-                                    <img src="/assets/default/img/custom-imgs/hourglass.png" alt="Icon 2"
-                                        style="width: 100%;" />
-                                </span>
-                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
-                                    style="" />
-                            </div>
-                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Placement Assistance
-                            </h3>
-                        </div>
-                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
-                    </div>
-
-                    <div
-                        style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;">
-                        <div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                                <span style="font-size: 2.4rem;">
-                                    <!-- Replace this with your actual icon -->
-                                    <img src="/assets/default/img/custom-imgs/lighbulb.png" alt="Icon 3"
-                                        style="width: 100%" />
-                                </span>
-                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
-                                    style="" />
-                            </div>
-                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Internship</h3>
-                        </div>
-                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Collaboration section --}}
-    <section class="container">
-        <div style="padding: 24px 0;  position: relative; margin-bottom: 16px;">
-            <div style="width: 40%;">
-                <span
-                    style="padding: 6px 12px; border-radius: 9999px; background: linear-gradient(to right, #5B21B6, #2563EB); color: white;">
-                    Our Partner
-                </span>
-                <div style="font-size: 2.4rem; margin: 16px 0; font-weight: 600; color:white">Collaboration</div>
-                <div style="font-size: 0.8rem; color:white">
-                    Classical Latin Literature From 45 BC, Making it Over 2000 Years old.
-                    Richard McClintock, A Latin Professor At Hampden Sydney College in
-                    Virginia
-                </div>
-
-            </div>
-            <div class="d-flex gap-4"
-                style="margin-top: 32px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
-                <div class="d-flex gap-4"
-                    style="display: inline-block;white-space: nowrap; animation: scroll 15s linear infinite;">
-                    <!-- Icon Card 1 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
-                        <img src="/assets/default/img/custom-imgs/0.png" alt="Next Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Next Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/2.png" alt="Cubic Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Cubic Course</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20% ;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/5.png" alt="Spiritual School"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Spiritual School</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/1.png" alt="Circuit Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circuit Course</span>
-                    </div>
-
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
-                        <img src="/assets/default/img/custom-imgs/0.png" alt="Next Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Next Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/2.png" alt="Cubic Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Cubic Course</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20% ;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/5.png" alt="Spiritual School"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Spiritual School</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/1.png" alt="Circuit Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circuit Course</span>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex gap-4"
-                style="margin-top: 32px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
-                <div class="d-flex gap-4"
-                    style="display: inline-block;white-space: nowrap; animation: scrollRev 15s linear infinite;">
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
-
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
-                </div>
-            </div>
-
-            <div style="width: 40%;">
-
-                <div style="position: absolute; bottom: 0; right: 24px; z-index:-1">
-                    <img src="/assets/default/img/custom-imgs/pattern1.png" alt="Pattern" />
-                </div>
-            </div>
-        </div>
-    </section>
 
     {{-- Statistics --}}
     @include('web.default.pages.includes.home_statistics')

@@ -42,6 +42,20 @@
                     </div>
 
                     <ul class="navbar-nav mr-auto d-flex align-items-center">
+
+                        {{-- 
+                        @if (!empty($navbarPages) and count($navbarPages))
+                            @foreach ($navbarPages as $navbarPage)
+                                <li class="nav-item">
+                                    <a class="nav-link" style="color:white"
+                                        href="{{ $navbarPage['link'] }}">{{ $navbarPage['title'] }}</a>
+                                </li>
+                            @endforeach
+
+                        @endif --}}
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white" href="/">Home</a>
+                        </li>
                         @if (!empty($categories) and count($categories))
                             <li class="mr-lg-25">
                                 <div class="menu-category">
@@ -49,7 +63,7 @@
                                         <li class="cursor-pointer user-select-none d-flex xs-categories-toggle">
                                             <i data-feather="grid" width="20" height="20"
                                                 class="mr-10 d-none d-lg-block"></i>
-                                            {{ trans('categories.categories') }}
+                                            Programs
 
                                             <ul class="cat-dropdown-menu">
                                                 @foreach ($categories as $category)
@@ -101,31 +115,21 @@
                                 </div>
                             </li>
                         @endif
-                        {{-- 
-                        @if (!empty($navbarPages) and count($navbarPages))
-                            @foreach ($navbarPages as $navbarPage)
-                                <li class="nav-item">
-                                    <a class="nav-link" style="color:white"
-                                        href="{{ $navbarPage['link'] }}">{{ $navbarPage['title'] }}</a>
-                                </li>
-                            @endforeach
-
-                        @endif --}}
-                        <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/">Home</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/classes?sort=newest">Courses</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white" href="/jobpost">Career</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/blog">Blogs</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/blog/about">About</a>
+                            <a class="nav-link" style="color:white" href="/blog/about">About Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/jobpost">Career</a>
-                        </li>
+
                     </ul>
                 </div>
             </span>
