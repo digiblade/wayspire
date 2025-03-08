@@ -130,6 +130,23 @@ class HomeController extends Controller
                 ])
                 ->get();
 
+
+            $carousel = Webinar::whereIn('id', $bestSaleWebinarsIds)
+                // ->where('status', Webinar::$active)
+                ->where('private', false)
+                ->with([
+                    'teacher' => function ($qu) {
+                        $qu->select('id', 'full_name', 'avatar');
+                    },
+                    'reviews' => function ($query) {
+                        $query->where('status', 'active');
+                    },
+                    'sales',
+                    'tickets',
+                    'feature'
+                ])
+                ->get();
+
             //$selectedWebinarIds = array_merge($selectedWebinarIds, $bestSaleWebinars->pluck('id')->toArray());
         }
 
@@ -360,7 +377,8 @@ class HomeController extends Controller
             'latestWebinars' => $latestWebinars ?? [],
             'latestBundles' => $latestBundles ?? [],
             'upcomingCourses' => $upcomingCourses ?? [],
-            'bestSaleWebinars' => $bestSaleWebinars ?? [],
+            // 'bestSaleWebinars' => $bestSaleWebinars ?? [],
+            'carousel' => $carousel ?? [],
             'hasDiscountWebinars' => $hasDiscountWebinars ?? [],
             'bestRateWebinars' => $bestRateWebinars ?? [],
             'freeWebinars' => $freeWebinars ?? [],
