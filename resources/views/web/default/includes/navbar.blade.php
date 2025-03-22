@@ -115,9 +115,9 @@
                                 </div>
                             </li>
                         @endif
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/classes?sort=newest">Courses</a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/jobpost">Career</a>

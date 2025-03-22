@@ -28,7 +28,7 @@ class JobPostController extends Controller
             ->join('users', 'users.id', '=', 'job_posts.company_id')
             ->where('users.role_name', 'company')
             ->where('job_posts.status', 'active')
-            ->where('job_posts.company_id', auth()->id())
+
             ->orderBy('job_posts.created_at', 'desc')
             ->get();
         $sort = $request->get('sort', null);

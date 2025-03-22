@@ -152,9 +152,11 @@
                         <div id="autoCarousel" class="custom-carousel">
                             <!-- Indicators -->
                             <div class="custom-carousel-indicators">
-                                <button type="button" data-slide-to="0" class="active" aria-label="Slide 1"></button>
-                                <button type="button" data-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-slide-to="2" aria-label="Slide 3"></button>
+                                @foreach ($carousel as $index => $bestSaleWebinar)
+                                    <button type="button" data-slide-to="{{ $index }}"
+                                        class="{{ $index === 0 ? 'active' : '' }}"
+                                        aria-label="Slide {{ $index }}"></button>
+                                @endforeach
                             </div>
 
                             <!-- Carousel Items -->
@@ -234,7 +236,7 @@
                         .custom-carousel-caption {
                             /* position: absolute; */
                             /* bottom: 10%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 50%; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        left: 50%; */
                             /* transform: translateX(-50%); */
                             color: white;
                             /* text-align: center; */

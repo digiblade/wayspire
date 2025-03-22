@@ -2,8 +2,9 @@
 
     <div class="custom-dropdown navbar-auth-user-dropdown position-relative ml-50">
         <div class="custom-dropdown-toggle d-flex align-items-center navbar-user cursor-pointer">
-            <img src="{{ $authUser->getAvatar() }}" class="rounded-circle" style="height:20px" alt="{{ $authUser->full_name }}">
-            <span class="font-16 user-name ml-10 text-dark-blue font-14">{{ $authUser->full_name }}</span>
+            <img src="{{ $authUser->getAvatar() }}" class="rounded-circle" style="height:20px"
+                alt="{{ $authUser->full_name }}">
+            <span class="font-16 user-name ml-10 text-white font-14">{{ $authUser->full_name }}</span>
         </div>
 
         <div class="custom-dropdown-body pb-10">

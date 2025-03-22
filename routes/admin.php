@@ -700,6 +700,12 @@ Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web
                     Route::get('/{id}/delete', 'HomeSectionSettingsController@delete');
                     Route::post('/sort', 'HomeSectionSettingsController@sort');
                 });
+                Route::group(['prefix' => 'top_bar'], function () {
+                    Route::get('/', 'HomeSectionSettingsController@topIndex');
+                    Route::post('/', 'HomeSectionSettingsController@topStore');
+                    Route::get('/{id}/delete', 'HomeSectionSettingsController@topDelete');
+                    Route::post('/sort', 'HomeSectionSettingsController@sort');
+                });
 
                 Route::group(['prefix' => 'statistics'], function () {
                     Route::get('/', 'StatisticSettingsController@index');
