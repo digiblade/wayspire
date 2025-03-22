@@ -132,7 +132,7 @@ class HomeController extends Controller
 
 
             $carousel = Webinar::whereIn('id', $bestSaleWebinarsIds)
-                // ->where('status', Webinar::$active)
+                ->where('status', Webinar::$active)
                 ->where('private', false)
                 ->with([
                     'teacher' => function ($qu) {

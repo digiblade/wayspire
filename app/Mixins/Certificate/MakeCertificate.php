@@ -33,7 +33,8 @@ class MakeCertificate
                 $quizResult->user_grade,
                 $quiz->webinar->teacher->id,
                 $quiz->webinar->teacher->full_name,
-                $quiz->webinar->duration);
+                $quiz->webinar->duration
+            );
 
             $data = [
                 'body' => $body
@@ -157,13 +158,14 @@ class MakeCertificate
         $template = CertificateTemplate::where('status', 'publish')
             ->where('type', 'course')
             ->first();
-
+            
         $course = $certificate->webinar;
-
+        
         if (!empty($template) and !empty($course)) {
             $user = $certificate->student;
-
+            
             $userCertificate = $this->saveCourseCertificate($user, $course);
+            
             $locale = app()->getLocale();
             $body = (!empty($template->translate($locale)) and !empty($template->translate($locale)->body)) ? $template->translate($locale)->body : $template->body;
 
@@ -176,13 +178,15 @@ class MakeCertificate
                 null,
                 $course->teacher->id,
                 $course->teacher->full_name,
-                $course->duration);
+                $course->duration
+            );
 
             $data = [
                 'body' => $body
             ];
-
+            
             $html = (string)view()->make('admin.certificates.create_template.show_certificate', $data);
+            // dd($html);
             return $this->sendToApi($userCertificate, $html);
         }
 
@@ -220,7 +224,8 @@ class MakeCertificate
                 null,
                 $bundle->teacher->id,
                 $bundle->teacher->full_name,
-                $bundle->duration);
+                $bundle->duration
+            );
 
             $data = [
                 'body' => $body
@@ -241,8 +246,10 @@ class MakeCertificate
 
     private function sendToApi($certificate, $html)
     {
-        $userId = getCertificateMainSettings("certificate_api_user_id");
-        $APIKey = getCertificateMainSettings("certificate_api_key");
+        $userId = env('CERTIFICATE_UID'); //getCertificateMainSettings("certificate_api_user_id");
+        $APIKey = env('CERTIFICATE_API'); //getCertificateMainSettings("certificate_api_key");
+        // $userId =  "aabcb6dd-645f-4523-a312-ecae8fc4efc9" ;//getCertificateMainSettings("certificate_api_user_id");
+        // $APIKey = "6061ea43-0cdc-4bef-9aa4-649872f1833d"; //getCertificateMainSettings("certificate_api_key");
 
         $data = [
             'html' => $html,
@@ -272,7 +279,7 @@ class MakeCertificate
         }
         curl_close($ch);
         $res = json_decode($result, true);
-
+// dd($data);
         if (!empty($res['url'])) {
             $url = $res['url'] . ".png";
             $image = file_get_contents($url);
@@ -357,5 +364,4 @@ class MakeCertificate
 
         return $certificate;
     }
-
 }

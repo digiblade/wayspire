@@ -49,7 +49,7 @@ class WebinarCertificateController extends Controller
             'certificates' => $certificates,
             'userWebinars' => $webinars,
         ];
-
+        dd($data);
         return view('web.default.panel.certificates.webinar_certificates', $data);
     }
 
@@ -122,12 +122,13 @@ class WebinarCertificateController extends Controller
     public function showCourseCertificate($certificateId)
     {
         $user = auth()->user();
+        
 
         $certificate = Certificate::where('id', $certificateId)
             ->where('student_id', $user->id)
             ->whereNotNull('webinar_id')
             ->first();
-
+        // dd($certificate);
         if (!empty($certificate)) {
             $makeCertificate = new MakeCertificate();
 
