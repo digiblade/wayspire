@@ -95,13 +95,13 @@
                         <a href="{{ $course->teacher->getProfileUrl() }}" target="_blank"
                             class="btn btn-sm btn-primary teacher-btn-action">{{ trans('public.profile') }}</a>
 
-                        @if (!empty($course->teacher->hasMeeting()))
+                        {{-- @if (!empty($course->teacher->hasMeeting()))
                             <a href="{{ $course->teacher->getProfileUrl() }}"
                                 class="btn btn-sm btn-primary teacher-btn-action ml-15">{{ trans('public.book_a_meeting') }}</a>
                         @else
                             <button type="button"
                                 class="btn btn-sm btn-primary disabled teacher-btn-action ml-15">{{ trans('public.book_a_meeting') }}</button>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
 

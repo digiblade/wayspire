@@ -45,7 +45,7 @@
     <section class="container mt-10 mt-md-40">
         <div class="row">
             <div class="col-12 col-lg-8">
-                <div class="post-show mt-30 text-light">
+                <div class="post-show mt-30 text-dark bg-light p-2 rounded">
 
                     <div class="post-img pb-30">
                         <img src="{{ $post->image }}" alt="">
@@ -68,7 +68,8 @@
             </div>
             <div class="col-12 col-lg-4">
                 @if (!empty($post->author) and !empty($post->author->full_name))
-                    <div class="rounded-lg shadow-sm mt-35 p-20 course-teacher-card d-flex align-items-center flex-column">
+                    <div
+                        class="rounded-lg shadow-sm mt-35 p-20 course-teacher-card d-flex align-items-center flex-column bg-white">
                         <div class="teacher-avatar mt-5">
                             <img src="{{ $post->author->getAvatar(100) }}" class="img-cover" alt="">
                         </div>
@@ -86,7 +87,7 @@
                 @endif
 
                 {{-- categories --}}
-                <div class="p-20 mt-30 rounded-sm shadow-lg border border-gray300">
+                <div class="p-20 mt-30 rounded-sm shadow-lg border border-gray300 bg-light">
                     <h3 class=" category-filter-title text-light font-16 font-weight-bold text-dark-blue">
                         {{ trans('categories.categories') }}</h3>
 
@@ -99,7 +100,7 @@
                 </div>
 
                 {{-- recent_posts --}}
-                <div class="p-20 mt-30 rounded-sm shadow-lg border border-gray300">
+                <div class="p-20 mt-30 rounded-sm shadow-lg border border-gray300 bg-light">
                     <h3 class=" category-filter-title text-light font-20 font-weight-bold text-dark-blue">
                         {{ trans('site.recent_posts') }}</h3>
 

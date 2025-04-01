@@ -123,9 +123,7 @@
                             <a class="nav-link" style="color:white" href="/jobpost">Career</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/jobpost">Career</a>
-                        </li>
+                    
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/blog">Blogs</a>
                         </li>
@@ -153,7 +151,7 @@
             </div>
 
 
-            <div class="nav-icons-or-start-live navbar-order d-flex align-items-center justify-content-end">
+            {{-- <div class="nav-icons-or-start-live navbar-order d-flex align-items-center justify-content-end"> --}}
 
                 {{-- @if (!empty($navBtnUrl))
                     <a href="{{ $navBtnUrl }}" class="d-none d-lg-flex btn btn-sm btn-primary nav-start-a-live-btn">
@@ -178,15 +176,15 @@
                     @endif
                 @endif --}}
 
-                <div class="d-none nav-notify-cart-dropdown top-navbar">
+                {{-- <div class="d-none nav-notify-cart-dropdown top-navbar">
                     @include('web.default.includes.shopping-cart-dropdwon')
 
                     <div class="border-left mx-15"></div>
 
                     @include('web.default.includes.notification-dropdown')
-                </div>
+                </div> --}}
 
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 </nav>
