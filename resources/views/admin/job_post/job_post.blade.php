@@ -123,7 +123,7 @@
 
                                                 <a href="{{ getAdminPanelUrl() }}/custom/applications/{{ $user->id }}"
                                                     class="btn-transparent  text-primary" data-toggle="tooltip"
-                                                    data-placement="top" title="{{ trans('admin/main.edit') }}">
+                                                    data-placement="top" title="Applicants">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
 

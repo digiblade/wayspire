@@ -20,7 +20,7 @@ class CustomController extends Controller
 {
     public function index(Request $request)
     {
-        $this->authorize('admin_supports_list');
+        // $this->authorize('admin_supports_list');
 
         $staffsRoles = Role::where('is_admin', true)->get();
         $staffsRoleIds = $staffsRoles->pluck('id')->toArray();
@@ -31,8 +31,12 @@ class CustomController extends Controller
 
         $users = $query->orderBy('created_at', 'desc')
             ->paginate(10);
+        if (auth()->user()->role->is_admin) {
+            $jobs = JobPost::orderBy('created_at', 'desc')->get();
+        } else {
+            $jobs = JobPost::where("company_id", auth()->id())->orderBy('created_at', 'desc')->get();
+        }
 
-        $jobs = JobPost::where("company_id", auth()->id())->orderBy('created_at', 'desc')->get();
 
         $data = [
             'pageTitle' => "Job Postings",
@@ -46,7 +50,7 @@ class CustomController extends Controller
 
     public function create()
     {
-        $this->authorize('admin_supports_list');
+        // $this->authorize('admin_supports_list');
 
         $data = [
             'pageTitle' => trans('admin/main.user_new_page_title'),
@@ -59,7 +63,7 @@ class CustomController extends Controller
 
     public function store(Request $request)
     {
-        $this->authorize('admin_supports_list');
+        // $this->authorize('admin_supports_list');
         $data = $request->all();
         // print_r($data);
         // dd();

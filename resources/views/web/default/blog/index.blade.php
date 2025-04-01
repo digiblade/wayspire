@@ -45,11 +45,11 @@
 
             <div class="col-12 col-lg-4">
 
-                <div class="p-20 mt-30 rounded-sm shadow-lg border border-gray300">
-                    <h3 class=" category-filter-title text-light font-20 font-weight-bold text-dark-blue">
+                <div class="p-20 mt-30 rounded-sm shadow-lg border border-gray300 bg-white">
+                    <h3 class=" category-filter-title text-dark font-20 font-weight-bold ">
                         {{ trans('categories.categories') }}</h3>
 
-                    <div class="pt-15">
+                    <div class="pt-15 ">
                         @foreach ($blogCategories as $blogCategory)
                             <a href="{{ $blogCategory->getUrl() }}"
                                 class="font-14 text-dark-blue d-block mt-15">{{ $blogCategory->title }}</a>
@@ -57,8 +57,8 @@
                     </div>
                 </div>
 
-                <div class="p-20 mt-30 rounded-sm shadow-lg border border-gray300">
-                    <h3 class=" category-filter-title text-light font-20 font-weight-bold text-dark-blue">
+                <div class="p-20 mt-30 rounded-sm shadow-lg border border-gray300 bg-white">
+                    <h3 class=" category-filter-title text-dark font-20 font-weight-bold text-dark-blue">
                         {{ trans('site.popular_posts') }}</h3>
 
                     <div class="pt-15">

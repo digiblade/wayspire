@@ -569,7 +569,7 @@
                 <li
                     class="nav-item dropdown <?php echo e((request()->is(getAdminPanelUrl('/supports*', false)) and request()->get('type') != 'course_conversations') ? 'active' : ''); ?>">
                     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                        <i class="fas fa-headphones"></i>
+                        <i class="fas fa-file-signature"></i>
                         <span>Job Postings</span>
                     </a>
 

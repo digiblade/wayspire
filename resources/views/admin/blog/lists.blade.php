@@ -43,7 +43,7 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="input-label">{{ trans('admin/main.category') }}</label>
+                                    <label class="input-label">{{ trans('admin/main.category') }} </label>
                                     <select name="category_id" data-plugin-selectTwo class="form-control populate">
                                         <option value="">{{ trans('admin/main.all_categories') }}</option>
 
@@ -73,7 +73,7 @@
                                     <select name="status" data-plugin-selectTwo class="form-control populate">
                                         <option value="">{{ trans('admin/main.all_status') }}</option>
                                         <option value="pending" @if(request()->get('status') == 'pending') selected @endif>{{ trans('admin/main.draft') }}</option>
-                                        <option value="publish" @if(request()->get('status') == 'publish') selected @endif>{{ trans('admin/main.publish') }}</option>
+                                        <option value="publish" @if(request()->get('status') == 'publish') selected @endif>Published</option>
                                     </select>
                                 </div>
                             </div>
