@@ -20245,14 +20245,14 @@ p {
     font-size: 11px;
 }
 
-. category-filter-title text-light {
+.category-filter-title text-light {
     position: relative;
     font-size: 16px;
     font-weight: 800;
     line-height: 1.19;
     color: #171347;
 }
-. category-filter-title text-light:after {
+.category-filter-title text-light:after {
     content: "";
     width: 50px;
     height: 3px;
@@ -20261,7 +20261,7 @@ p {
     bottom: -10px;
     left: 0;
 }
-.rtl . category-filter-title text-light:after {
+.rtl .category-filter-title text-light:after {
     left: auto;
     right: 0;
 }
