@@ -101,7 +101,7 @@
                         .custom-carousel-caption {
                             /* position: absolute; */
                             /* bottom: 10%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        left: 50%; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 50%; */
                             /* transform: translateX(-50%); */
                             color: white;
                             /* text-align: center; */
@@ -1531,13 +1531,10 @@
                                                 <?php endwhile; ?>
                                             </div>
 
-                                            <?php if(!empty($instructor->hasMeeting())): ?>
-                                                <a href="<?php echo e($instructor->getProfileUrl()); ?>?tab=appointments"
-                                                    class="btn btn-primary btn-sm rounded-pill mt-15"><?php echo e(trans('home.reserve_a_live_class')); ?></a>
-                                            <?php else: ?>
-                                                <a href="<?php echo e($instructor->getProfileUrl()); ?>"
-                                                    class="btn btn-primary btn-sm rounded-pill mt-15"><?php echo e(trans('public.profile')); ?></a>
-                                            <?php endif; ?>
+
+                                            <a href="<?php echo e($instructor->getProfileUrl()); ?>"
+                                                class="btn btn-primary btn-sm rounded-pill mt-15"><?php echo e(trans('public.profile')); ?></a>
+
                                         </div>
                                     </div>
                                 </div>
