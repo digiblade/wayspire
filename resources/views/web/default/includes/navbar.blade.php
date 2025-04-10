@@ -129,7 +129,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/blog/about">About Us</a>
+                            <a class="nav-link" style="color:white" href="/about-us">About Us</a>
                         </li>
 
                     </ul>

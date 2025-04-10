@@ -299,10 +299,10 @@
                                     </a>
                                 @endif
 
-                                @if ($canSale and $course->subscribe)
+                                {{-- @if ($canSale and $course->subscribe)
                                     <a href="/subscribes/apply/{{ $course->slug }}"
                                         class="btn btn-outline-primary btn-subscribe mt-20 @if (!$canSale) disabled @endif">{{ trans('public.subscribe') }}</a>
-                                @endif
+                                @endif --}}
 
                             </div>
 
@@ -570,7 +570,7 @@
         </div>
 
         {{-- Ads Bannaer --}}
-        @if (!empty($advertisingBanners) and count($advertisingBanners))
+        {{-- @if (!empty($advertisingBanners) and count($advertisingBanners))
             <div class="mt-30 mt-md-50">
                 <div class="row">
                     @foreach ($advertisingBanners as $banner)
@@ -583,7 +583,7 @@
                     @endforeach
                 </div>
             </div>
-        @endif
+        @endif --}}
         {{-- ./ Ads Bannaer --}}
     </section>
 

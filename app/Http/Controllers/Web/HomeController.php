@@ -7,6 +7,8 @@ use App\Mixins\Installment\InstallmentPlans;
 use App\Models\AdvertisingBanner;
 use App\Models\Blog;
 use App\Models\Bundle;
+use App\Models\CustomHomeScreenModal;
+use App\Models\CustomJourneyModal;
 use App\Models\FeatureWebinar;
 use App\Models\HomePageStatistic;
 use App\Models\HomeSection;
@@ -365,7 +367,8 @@ class HomeController extends Controller
                 $homeCustomStatistics = HomePageStatistic::query()->orderBy('order', 'asc')->limit(4)->get();
             }
         }
-
+        $journey = CustomJourneyModal::first();
+        $home_screen = CustomHomeScreenModal::first();
         $data = [
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
@@ -397,6 +400,8 @@ class HomeController extends Controller
             'findInstructorSection' => $findInstructorSection ?? null,
             'rewardProgramSection' => $rewardProgramSection ?? null,
             'becomeInstructorSection' => $becomeInstructorSection ?? null,
+            'journey' => $journey,
+            'home_screen' => $home_screen,
             'forumSection' => $forumSection ?? null,
         ];
 

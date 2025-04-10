@@ -180,18 +180,9 @@ Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web
             Route::post('/{id}/update', 'CustomController@update');
             Route::get('/{id}/delete', 'CustomController@delete');
 
-            Route::get('/{id}/close', 'SupportsController@conversationClose');
-            Route::get('/{id}/conversation', 'SupportsController@conversation');
-            Route::post('/{id}/conversation', 'SupportsController@storeConversation');
 
-            Route::group(['prefix' => 'departments'], function () {
-                Route::get('/', 'SupportDepartmentsController@index');
-                Route::get('/create', 'SupportDepartmentsController@create');
-                Route::post('/store', 'SupportDepartmentsController@store');
-                Route::get('/{id}/edit', 'SupportDepartmentsController@edit');
-                Route::post('/{id}/update', 'SupportDepartmentsController@update');
-                Route::get('/{id}/delete', 'SupportDepartmentsController@delete');
-            });
+            Route::get('/about-us/edit', 'CustomStepController@edit');
+            Route::post('/about-us/{id}', 'CustomStepController@update');
         });
 
         Route::group(['prefix' => 'noticeboards'], function () {
@@ -718,6 +709,18 @@ Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web
                     Route::post('/sort', 'StatisticSettingsController@sort');
                 });
 
+                Route::group(['prefix' => 'about_us'], function () {
+                    Route::get('/', 'CustomAboutController@index');
+                    Route::post('/', 'CustomAboutController@store');
+                });
+                Route::group(['prefix' => 'journey'], function () {
+                    Route::get('/', 'CustomAboutController@journey');
+                    Route::post('/', 'CustomAboutController@journeyStore');
+                });
+                Route::group(['prefix' => 'home_screen'], function () {
+                    Route::get('/', 'CustomAboutController@home_screen');
+                    Route::post('/', 'CustomAboutController@home_screenStore');
+                });
                 Route::get('/{name}', 'SettingsController@personalizationPage');
             });
 

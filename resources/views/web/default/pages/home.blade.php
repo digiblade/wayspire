@@ -19,129 +19,15 @@
             @if (empty($heroSectionData['is_video_background'])) style="background-image: url('{{ $heroSectionData['hero_background'] }}')" @endif>
 
             @if ($heroSection == '1')
-                {{-- @if (!empty($heroSectionData['is_video_background']))
-                    <video playsinline autoplay muted loop id="homeHeroVideoBackground" class="img-cover">
-                        <source src="{{ $heroSectionData['hero_background'] }}" type="video/mp4">
-                    </video>
-                @endif --}}
+
                 <img src="./assets/default/img/custom-imgs/banner1.png" class="img-cover" alt="">
-                {{-- <div class="mask"></div> --}}
+
             @endif
 
             <div class="container-fluid user-select-none">
                 <div class="col-12"
                     style="padding: 0 2rem;display: flex;flex: 1;height: 100%;width: 100%;gap: 4rem;justify-content: space-between;align-items: center;padding-bottom: 4rem;/* background: linear-gradient(60deg,#303d65,#2c313b 60%,#48372c 70%); */color:white">
-                    {{-- <!DOCTYPE html>
-                    <html lang="en">
-
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    
-                        <style>
-                            .carousel-inner img {
-                                height: 400px;
-                                object-fit: cover;
-                            }
-
-                            .carousel-item {
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                gap: 4rem;
-                                padding: 4rem 6rem;
-                                color: white;
-                            }
-
-                            .badge-container {
-                                display: inline-flex;
-                                margin-bottom: 0.5rem;
-                                padding: 0.5rem 1.5rem;
-                                background: linear-gradient(to right, #4a90e2, #b0bec5);
-                                border-radius: 9999px;
-                                align-items: center;
-                                font-weight: 500;
-                            }
-
-                            .badge-container img {
-                                width: 12px;
-                                height: 12px;
-                                margin-right: 0.5rem;
-                            }
-
-                            .btn-custom {
-                                margin-top: 1rem;
-                                background-color: #f97316;
-                                color: black;
-                                padding: 0.5rem 1rem;
-                                border-radius: 9999px;
-                                cursor: pointer;
-                                transition: background-color 0.2s ease-in-out;
-                                border: none;
-                            }
-
-                            .btn-custom:hover {
-                                background-color: #ea580c;
-                            }
-                        </style>
-                    </head>
-
-                    <body>
-                        <div class="container mt-5">
-                            <div class="col-8 mx-auto">
-                                <div id="autoCarousel" class="carousel slide" data-bs-ride="carousel"
-                                    data-bs-interval="3000">
-                                    <!-- Indicators -->
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="0"
-                                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="1"
-                                            aria-label="Slide 2"></button>
-                                    </div>
-
-                                    <!-- Carousel Items -->
-                                    <div class="carousel-inner">
-                                        <!-- Slide 1 -->
-                                        <div class="carousel-item active">
-                                            <div>
-                                                <div class="badge-container">
-                                                    <img src="./assets/default/img/custom-imgs/trophy.png" alt="Trophy">
-                                                    <span>Design Course</span>
-                                                </div>
-                                                <h2 class="fw-bold display-4">UI/UX</h2>
-                                                <p class="fs-5">There are many variations of passages of Lorem Ipsum
-                                                    available, but the majority have suffered alteration in some form.</p>
-                                                <button class="btn-custom">View Courses →</button>
-                                            </div>
-                                            <img src="./assets/default/img/custom-imgs/banner1.png"
-                                                class="d-block img-fluid" alt="Slide 1">
-                                        </div>
-
-                                        <!-- Slide 2 -->
-                                        <div class="carousel-item">
-                                            <div>
-                                                <div class="badge-container">
-                                                    <img src="./assets/default/img/custom-imgs/trophy.png" alt="Trophy">
-                                                    <span>Design Course</span>
-                                                </div>
-                                                <h2 class="fw-bold display-4">Web Development</h2>
-                                                <p class="fs-5">There are many variations of passages of Lorem Ipsum
-                                                    available, but the majority have suffered alteration in some form.</p>
-                                                <button class="btn-custom">View Courses →</button>
-                                            </div>
-                                            <img src="./assets/default/img/custom-imgs/banner1.png"
-                                                class="d-block img-fluid" alt="Slide 2">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bootstrap JS -->
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-                    </body>
-
-                    </html> --}}
+            
                     <style>
                         .carousel-inner img {
                             height: 400px;
@@ -159,17 +45,8 @@
                                 @endforeach
                             </div>
 
-                            <!-- Carousel Items -->
-
-
-
                             <div class="custom-carousel-inner">
                                 @foreach ($carousel as $bestSaleWebinar)
-                                    {{-- <div class="swiper-slide">
-                                        @include('web.default.includes.webinar.grid-card', [
-                                            'webinar' => $bestSaleWebinar,
-                                        ])
-                                    </div> --}}
                                     <div class="custom-carousel-item active p-4" style="display:flex;">
                                         <div class="custom-carousel-caption"
                                             style="width:50%; height:100%;display:flex; flex-direction:column; gap:1rem">
@@ -236,7 +113,7 @@
                         .custom-carousel-caption {
                             /* position: absolute; */
                             /* bottom: 10%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 50%; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            left: 50%; */
                             /* transform: translateX(-50%); */
                             color: white;
                             /* text-align: center; */
@@ -745,33 +622,49 @@
         </div>
     </section>
 
-    <div
-        style="padding: 2rem 6rem; margin-bottom: 4rem; display: flex; justify-content: space-between; align-items: start;">
-        <div style="color: white;">
-            <span
-                style="background-color: #e2e8f0; color: #2b6cb0; padding: 0.5rem 2rem; border-radius: 20px;">UpScale</span>
-            <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Wants To UpScale</h1>
-            <div>
-                <select
-                    style="width: 100%; padding: 1rem; font-size: 1.2rem; border: 1px solid #ccc; border-radius: 5px; margin-top: 1rem;">
-                    <option>Select Your Course</option>
-                    <option>UI/UX Design</option>
-                    <option>Web Development</option>
-                    <option>App Devel opment</option>
-                </select>
+    <section class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20 py-20">
+        <div class="row align-items-center">
+           
+            <div class="col-12 col-lg-6 gap-2">
+                <div style="color: white;">
+                    <span
+                        style="background-color: #e2e8f0; color: #2b6cb0; padding: 0.5rem 2rem; border-radius: 20px;">UpScale</span>
+                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Wants To UpScale</h1>
+                    <div>
+                        <select
+                            style="width: 100%; padding: 1rem; font-size: 1.2rem; border: 1px solid #ccc; border-radius: 5px; margin-top: 1rem;">
+                            <option>Select Your Course</option>
+                            <option>UI/UX Design</option>
+                            <option>Web Development</option>
+                            <option>App Devel opment</option>
+                        </select>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <button
+                            style="background-color: #f97316; color: black; font-weight: bold; padding: 0.8rem 2rem; border-radius: 20px; cursor: pointer; transition: background 0.2s ease-in-out;">Explore
+                            More →</button>
+                    </div>
+                </div>
+                
             </div>
-            <div style="margin-top: 2rem;">
-                <button
-                    style="background-color: #f97316; color: black; font-weight: bold; padding: 0.8rem 2rem; border-radius: 20px; cursor: pointer; transition: background 0.2s ease-in-out;">Explore
-                    More →</button>
+            <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
+                <div class="position-relative ">
+                    <img src="{{ $home_screen['upscale_banner'] }}" class="find-instructor-section-hero"
+                        alt="{{ $journey['title'] }}">
+                    <img src="/assets/default/img/home/circle-4.png" class="find-instructor-section-circle"
+                        alt="circle">
+                    <img src="/assets/default/img/home/dot.png" class="find-instructor-section-dots" alt="dots">
+
+
+                </div>
             </div>
-        </div>
-        <div style="display:flex; justify-content:end"><img src="./assets/default/img/custom-imgs/pattern3.png"
-                style=" width: 50%" alt="Pattern">
-        </div>
 
-    </div>
 
+        </div>
+    </section>
+
+
+   
     {{-- What we done --}}
 
     <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9;">
@@ -791,10 +684,10 @@
                     </div>
                 </div>
                 <div style="font-size: 1.5rem; width: 50%;  color:white;">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem beatae repellat aperiam fugiat minima.
+                    {{ $home_screen['what_we_done_desc'] }}
                 </div>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem;">
+            {{-- <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem;">
                 <div
                     style="background-color: white; padding: 1rem; border-radius: 10px; text-align: center; transition: background 0.3s ease-in-out;">
                     <img src="./assets/default/img/custom-imgs/card-icon1.png" alt="Icon 1">
@@ -832,7 +725,7 @@
                         style="height: 40px; width: 40px; background-color: #f97316; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto; margin-top: 1rem;">
                         →</div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- Section 4 -->
@@ -1847,92 +1740,59 @@
     @endforeach
 
 
-    <div
-        style="
-    padding: 0 6rem;
-    margin: 9rem 0;
-    text-align: center;
-    position: relative;
-    color:white
-  ">
-        <span
-            style="
-      padding: 0.5rem 2rem;
-      background-color: #4a90e2; /* Secondary Blue */
-      border-radius: 9999px;
-      display: inline-block;
-    ">
-            Journey
-        </span>
-        <div style="
-      margin-top: 2rem;
-      font-size: 3rem;
-      font-weight: 600;
-    ">
-            Our Student Journey
-        </div>
-        <div
-            style="
-      display: flex;
-      margin-top: 4rem;
-      gap: 3rem;
-      text-align: left;
-      align-items: center;
-    ">
+    <section class="container-fluid">
+        <div style=" text-align: center; position: relative; margin: 2rem 0; color:white">
+            <span style="padding: 0.5rem 2rem; border: 1px solid #0073e6; color: #0073e6; border-radius: 999px;">Our
+                Story</span>
+            <div style="margin-top: 2rem; font-size: 2.5rem; font-weight: 600;">Our Student Journey</div>
+            <div style="display: flex;justify-content: space-between;align-items: center;padding: 0 6rem;margin: 8rem 0;">
+            </div>
+            <div class="stats-container " style="margin: 4rem 0;">
+                <div class="container position-relative">
+                    <section class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
+                                <div class="position-relative ">
+                                    <img src="{{ $journey['banner_image'] }}" class="find-instructor-section-hero"
+                                        alt="{{ $journey['title'] }}">
+                                    <img src="/assets/default/img/home/circle-4.png" class="find-instructor-section-circle"
+                                        alt="circle">
+                                    <img src="/assets/default/img/home/dot.png" class="find-instructor-section-dots" alt="dots">
+        
+        
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 gap-2">
+                                <div class="">
+                                    <h2 class="font-36 font-weight-bold text-light">{{ $journey['title'] ?? '' }}
+                                    </h2>
+                                    <p class="font-16 font-weight-normal text-gray mt-10">
+                                        {{ $journey['description'] ?? '' }}</p>
+        
+        
+                                </div>
+                            </div>
+        
+        
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="d-none d-md-block" style="margin-top: 9rem; display: flex; justify-content: center; align-items: center;">
+                <img src="{{ $journey['timeline_image'] ?? '' }}" alt="" style="width:100%" />
+            </div>
             <div
-                style="
-        width: 50%;
-        height: 24rem;
-        background-color: white;
-        border-radius: 1rem;
-      ">
-            </div>
-            <div style="width: 33.333%;">
-                <span
-                    style="
-          font-size: 1.5rem;
-          color: #4a90e2; /* Secondary Blue */
-          display: block;
-        ">
-                    2024
-                </span>
-                <div style="font-size: 2rem; margin-top: 0.5rem;">
-                    Presenting one million Joiner Through Online Ai Course Service
-                </div>
-                <div style="
-          text-align: justify;
-          margin: 1rem 0;
-        ">
-                    Classical Latin literature from 45 BC, making it over 2000 years old.
-                    Richard McClintock, a Latin professor at Hampden Sydney College in
-                    Virginia.
-                </div>
-                <div
-                    style="
-                        display: inline-flex;
-                        background-color: #fbc02d; /* Primary Yellow */
-                        padding: 0.5rem 1rem;
-                        border-radius: 9999px;
-                        align-items: center;
-                        gap: 0.25rem;
-                        color: black;
-                    ">
-                    Join Now →
-                </div>
+                style="position: absolute; inset: 0; z-index: -10; background: radial-gradient(circle,  #141414c8 20%,
+            #171717 30% /* Primary Blue */); display: flex; justify-content: center; align-items: center;">
+                <img src="/assets/default/img/custom-imgs/mapPattern.png" alt="" />
             </div>
         </div>
-        <div style="margin-top: 9rem;height: 20rem;display: flex;flex-direction: column;justify-content: center;">
-            <img src="./assets/default/img/custom-imgs/timeline.png" alt="Timeline" />
-        </div>
-        <div
-            style="position: absolute;z-index: -10;top: 25%;left: 0;display: flex;justify-content: center;align-items: center;inset: 0;width: 100%;height: 100%;background: radial-gradient(circle,#141414c8 20%,#171717 30% /* Primary Blue */);">
-            <img src="./assets/default/img/custom-imgs/mapPattern.png" alt="Map Pattern" />
-        </div>
-    </div>
+
+    </section>
 
     <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 96px; margin-bottom: 64px;">
         <div style="width: 40%;">
-            <img src="/assets/default/img/custom-imgs/pattern3.png" alt="" style="width: 100%;">
+            <img src="{{ $home_screen['faq_banner'] }}" alt="" style="width: 100%;">
         </div>
         <div style="width: 50%; color: white;">
             <div style="padding: 48px 0;">

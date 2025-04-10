@@ -75,10 +75,7 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="text-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error ducimus
-                            unde alias illum
-                            quod velit ea tempora sit delectus natus sequi nostrum id, obcaecati sint iure quisquam ut
-                            iusto sunt?</div>
+                        <div class="text-light">{{ $home_screen['footer_description'] }}</div>
                         <div class="footer-social my-4">
                             @if (!empty($socials) and count($socials))
                                 @foreach ($socials as $social)

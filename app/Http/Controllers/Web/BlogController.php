@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\CustomHomeScreenModal;
 use App\Models\Translation\BlogTranslation;
+use App\Models\Role;
+use App\User;
+use App\Models\Webinar;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -71,10 +75,54 @@ class BlogController extends Controller
 
     public function about(Request $request, $category = null)
     {
+        $homeDefaultStatistics = $this->getHomeDefaultStatistics();
+        $home_screen = CustomHomeScreenModal::first();
+        $data = [
 
-        return view(getTemplate() . '.home.about',);
+            'homeDefaultStatistics' => $homeDefaultStatistics,
+            'home_screen' => $home_screen
+        ];
+        return view(getTemplate() . '.home.about', $data);
     }
+    private function getHomeDefaultStatistics()
+    {
+        $skillfulTeachersCount = User::where('role_name', Role::$teacher)
+            ->where(function ($query) {
+                $query->where('ban', false)
+                    ->orWhere(function ($query) {
+                        $query->whereNotNull('ban_end_at')
+                            ->where('ban_end_at', '<', time());
+                    });
+            })
+            ->where('status', 'active')
+            ->count();
 
+        $studentsCount = User::where('role_name', Role::$user)
+            ->where(function ($query) {
+                $query->where('ban', false)
+                    ->orWhere(function ($query) {
+                        $query->whereNotNull('ban_end_at')
+                            ->where('ban_end_at', '<', time());
+                    });
+            })
+            ->where('status', 'active')
+            ->count();
+
+        $liveClassCount = Webinar::where('type', 'webinar')
+            ->where('status', 'active')
+            ->count();
+
+        $offlineCourseCount = Webinar::where('status', 'active')
+            ->whereIn('type', ['course', 'text_lesson'])
+            ->count();
+
+        return [
+            'skillfulTeachersCount' => $skillfulTeachersCount,
+            'studentsCount' => $studentsCount,
+            'liveClassCount' => $liveClassCount,
+            'offlineCourseCount' => $offlineCourseCount,
+        ];
+    }
     public function show($slug)
     {
         if (!empty($slug)) {
