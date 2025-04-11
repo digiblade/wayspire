@@ -15684,6 +15684,7 @@ p {
         padding: 20px;
     }
     .navbar .navbar-toggle-content.show {
+    background:black;
         top: 0;
     }
     .has-fixed-top-floating-bar .navbar .navbar-toggle-content {

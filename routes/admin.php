@@ -721,6 +721,24 @@ Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web
                     Route::get('/', 'CustomAboutController@home_screen');
                     Route::post('/', 'CustomAboutController@home_screenStore');
                 });
+                Route::group(['prefix' => 'what_we_offer'], function () {
+                    Route::get('/', 'CustomAboutController@what_we_offer');
+                    Route::post('/', 'CustomAboutController@what_we_offerStore');
+                });
+                Route::group(['prefix' => 'collaborations'], function () {
+                    Route::get('/', 'CustomAboutController@collaborations');
+                    Route::post('/', 'CustomAboutController@collaborationsStore');
+                    Route::get('/{id}/edit', 'CustomAboutController@collaborationsEdit')->name('edit');
+                    Route::post('/{id}', 'CustomAboutController@collaborationsUpdate');
+                    Route::get('/{id}/delete', 'CustomAboutController@collaborationsDestroy')->name('destroy');
+                });
+                Route::group(['prefix' => 'faq'], function () {
+                    Route::get('/', 'CustomAboutController@faq');
+                    Route::post('/', 'CustomAboutController@faqStore');
+                    Route::get('/{id}/edit', 'CustomAboutController@faqEdit')->name('edit');
+                    Route::post('/{id}', 'CustomAboutController@faqUpdate');
+                    Route::get('/{id}/delete', 'CustomAboutController@faqDestroy')->name('destroy');
+                });
                 Route::get('/{name}', 'SettingsController@personalizationPage');
             });
 

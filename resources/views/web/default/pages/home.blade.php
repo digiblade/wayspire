@@ -19,22 +19,20 @@
             @if (empty($heroSectionData['is_video_background'])) style="background-image: url('{{ $heroSectionData['hero_background'] }}')" @endif>
 
             @if ($heroSection == '1')
-
                 <img src="./assets/default/img/custom-imgs/banner1.png" class="img-cover" alt="">
-
             @endif
 
             <div class="container-fluid user-select-none">
-                <div class="col-12"
-                    style="padding: 0 2rem;display: flex;flex: 1;height: 100%;width: 100%;gap: 4rem;justify-content: space-between;align-items: center;padding-bottom: 4rem;/* background: linear-gradient(60deg,#303d65,#2c313b 60%,#48372c 70%); */color:white">
-            
+                <div class="col-12 px-0 px-md-4"
+                    style="display: flex;flex: 1;height: 100%;width: 100%;gap: 4rem;justify-content: space-between;align-items: center;padding-bottom: 4rem;/* background: linear-gradient(60deg,#303d65,#2c313b 60%,#48372c 70%); */color:white">
+
                     <style>
                         .carousel-inner img {
                             height: 400px;
                             object-fit: cover;
                         }
                     </style>
-                    <div class="col-8 container mt-5">
+                    <div class="col-12 col-md-8  container mt-5">
                         <div id="autoCarousel" class="custom-carousel">
                             <!-- Indicators -->
                             <div class="custom-carousel-indicators">
@@ -45,9 +43,9 @@
                                 @endforeach
                             </div>
 
-                            <div class="custom-carousel-inner">
+                            <div class="custom-carousel-inner ">
                                 @foreach ($carousel as $bestSaleWebinar)
-                                    <div class="custom-carousel-item active p-4" style="display:flex;">
+                                    <div class="custom-carousel-item active p-0 p-md-4 " style="display:flex;">
                                         <div class="custom-carousel-caption"
                                             style="width:50%; height:100%;display:flex; flex-direction:column; gap:1rem">
                                             <h2 class="fw-bold" style="font-size:2rem">
@@ -80,121 +78,122 @@
                                 </div> --}}
                             </div>
                         </div>
+                        <style>
+                            .custom-carousel {
+                                position: relative;
+                                width: 100%;
+                                overflow: hidden;
+                            }
+
+                            .custom-carousel-inner {
+                                display: flex;
+                                transition: transform 0.5s ease-in-out;
+                            }
+
+                            .custom-carousel-item {
+                                min-width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: start;
+                                /* background-color: black; */
+                                position: relative;
+                                padding: 6rem
+                            }
+
+                            .custom-carousel-item img {
+                                /* width: 100%; */
+                                height: 50vh;
+
+                            }
+
+                            .custom-carousel-caption {
+                                /* position: absolute; */
+                                /* bottom: 10%;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 50%; */
+                                /* transform: translateX(-50%); */
+                                color: white;
+                                /* text-align: center; */
+                            }
+
+                            .custom-carousel-btn {
+                                background-color: #f97316;
+                                color: black;
+                                padding: 0.5rem 1rem;
+                                border-radius: 9999px;
+                                cursor: pointer;
+                                transition: background-color 0.2s ease-in-out;
+                            }
+
+                            .custom-carousel-btn:hover {
+                                background-color: #ea580c;
+                            }
+
+                            .custom-carousel-indicators {
+                                position: absolute;
+                                bottom: 5px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                display: flex;
+                                gap: 8px;
+                            }
+
+                            .custom-carousel-indicators button {
+                                width: 10px;
+                                height: 10px;
+                                background-color: white;
+                                border: none;
+                                border-radius: 50%;
+                                cursor: pointer;
+                                opacity: 0.5;
+                            }
+
+                            .custom-carousel-indicators .active {
+                                opacity: 1;
+                                background-color: #f97316;
+                            }
+                        </style>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                const carousel = document.querySelector(".custom-carousel-inner");
+                                const indicators = document.querySelectorAll(".custom-carousel-indicators button");
+                                let currentIndex = 0;
+                                let interval;
+
+                                function updateCarousel(index) {
+                                    currentIndex = index;
+                                    const offset = -index * 100;
+                                    carousel.style.transform = `translateX(${offset}%)`;
+                                    indicators.forEach((btn, i) => btn.classList.toggle("active", i === index));
+                                }
+
+                                function nextSlide() {
+                                    currentIndex = (currentIndex + 1) % indicators.length;
+                                    updateCarousel(currentIndex);
+                                }
+
+                                function startAutoSlide() {
+                                    interval = setInterval(nextSlide, 3000);
+                                }
+
+                                function stopAutoSlide() {
+                                    clearInterval(interval);
+                                }
+
+                                indicators.forEach((button, index) => {
+                                    button.addEventListener("click", () => {
+                                        stopAutoSlide();
+                                        updateCarousel(index);
+                                        startAutoSlide();
+                                    });
+                                });
+
+                                startAutoSlide();
+                            });
+                        </script>
                     </div>
 
-                    <style>
-                        .custom-carousel {
-                            position: relative;
-                            width: 100%;
-                            overflow: hidden;
-                        }
 
-                        .custom-carousel-inner {
-                            display: flex;
-                            transition: transform 0.5s ease-in-out;
-                        }
-
-                        .custom-carousel-item {
-                            min-width: 100%;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: start;
-                            /* background-color: black; */
-                            position: relative;
-                            padding: 6rem
-                        }
-
-                        .custom-carousel-item img {
-                            /* width: 100%; */
-                            height: 50vh;
-
-                        }
-
-                        .custom-carousel-caption {
-                            /* position: absolute; */
-                            /* bottom: 10%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            left: 50%; */
-                            /* transform: translateX(-50%); */
-                            color: white;
-                            /* text-align: center; */
-                        }
-
-                        .custom-carousel-btn {
-                            background-color: #f97316;
-                            color: black;
-                            padding: 0.5rem 1rem;
-                            border-radius: 9999px;
-                            cursor: pointer;
-                            transition: background-color 0.2s ease-in-out;
-                        }
-
-                        .custom-carousel-btn:hover {
-                            background-color: #ea580c;
-                        }
-
-                        .custom-carousel-indicators {
-                            position: absolute;
-                            bottom: 5px;
-                            left: 50%;
-                            transform: translateX(-50%);
-                            display: flex;
-                            gap: 8px;
-                        }
-
-                        .custom-carousel-indicators button {
-                            width: 10px;
-                            height: 10px;
-                            background-color: white;
-                            border: none;
-                            border-radius: 50%;
-                            cursor: pointer;
-                            opacity: 0.5;
-                        }
-
-                        .custom-carousel-indicators .active {
-                            opacity: 1;
-                            background-color: #f97316;
-                        }
-                    </style>
-
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            const carousel = document.querySelector(".custom-carousel-inner");
-                            const indicators = document.querySelectorAll(".custom-carousel-indicators button");
-                            let currentIndex = 0;
-                            let interval;
-
-                            function updateCarousel(index) {
-                                currentIndex = index;
-                                const offset = -index * 100;
-                                carousel.style.transform = `translateX(${offset}%)`;
-                                indicators.forEach((btn, i) => btn.classList.toggle("active", i === index));
-                            }
-
-                            function nextSlide() {
-                                currentIndex = (currentIndex + 1) % indicators.length;
-                                updateCarousel(currentIndex);
-                            }
-
-                            function startAutoSlide() {
-                                interval = setInterval(nextSlide, 3000);
-                            }
-
-                            function stopAutoSlide() {
-                                clearInterval(interval);
-                            }
-
-                            indicators.forEach((button, index) => {
-                                button.addEventListener("click", () => {
-                                    stopAutoSlide();
-                                    updateCarousel(index);
-                                    startAutoSlide();
-                                });
-                            });
-
-                            startAutoSlide();
-                        });
-                    </script>
 
 
                     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script> --}}
@@ -202,7 +201,7 @@
 
 
 
-                    <div class="col-4"
+                    <div class="col-12 col-md-4"
                         style="flex: 1; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center;">
                         <div style="display: inline-flex; justify-content: center;">
                             <div
@@ -316,8 +315,9 @@
 
 
     <section class="container">
-        <div style="display: flex; padding: 1rem 24px; justify-content: space-between; gap: 16px; color:white">
-            <div style="width:30%">
+        <div class="row"
+            style="display: flex; padding: 1rem 24px; justify-content: space-between; gap: 16px; color:white">
+            <div class="col-12 col-md-3">
                 <h1 style="font-size: 3rem;">What We Offer</h1>
                 <div style="font-size: 1.4rem; margin-top: 12px;">It's All About Design Courses.</div>
                 <div style="font-size: 1.4rem; margin-bottom: 12px;">Because Thats What We Do.</div>
@@ -326,28 +326,100 @@
                     Explore More →
                 </button>
             </div>
-            <div style="flex: 1;">
-                <div style="display: flex; flex-direction: row; gap: 16px; min-height: 96px;">
-                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
-                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
-                        <div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                                <span style="font-size: 3rem;">
-                                    <!-- Replace this with your actual icon -->
-                                    <img src="/assets/default/img/custom-imgs/mobile.png" alt="Icon 1"
-                                        style="width: 100%;" />
-                                </span>
-                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
-                                    style="width: 12px; " />
+            <div class="col-12 col-md-9 container" style="flex: 1;">
+                <div class="row gap-1" style="  min-height: 96px;">
+                    <div class="col-12 col-md-3 p-1">
+                        <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                            onmouseover="this.style.backgroundColor='#007BFF'"
+                            onmouseout="this.style.backgroundColor='#333'">
+                            <div>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <span style="font-size: 3rem;">
+                                        <!-- Replace this with your actual icon -->
+                                        <img src="{{ $what_we_offer['card_1_icon'] }}" alt="Icon 1"
+                                            style="width: 100%;" />
+                                    </span>
+                                    <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                        style="width: 12px; " />
+                                </div>
+                                <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">
+                                    {{ $what_we_offer['card_1_title'] }}
+                                </h3>
                             </div>
-                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Training & Internship
-                            </h3>
+                            <p style="font-size: 1rem;">{{ $what_we_offer['card_1_description'] }}</p>
                         </div>
-                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
+                    </div>
+                    <div class="col-12 col-md-3 p-1">
+                        <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                            onmouseover="this.style.backgroundColor='#007BFF'"
+                            onmouseout="this.style.backgroundColor='#333'">
+                            <div>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <span style="font-size: 3rem;">
+                                        <!-- Replace this with your actual icon -->
+                                        <img src="{{ $what_we_offer['card_2_icon'] }}" alt="Icon 1"
+                                            style="width: 100%;" />
+                                    </span>
+                                    <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                        style="width: 12px; " />
+                                </div>
+                                <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">
+                                    {{ $what_we_offer['card_2_title'] }}
+                                </h3>
+                            </div>
+                            <p style="font-size: 1rem;">{{ $what_we_offer['card_2_description'] }}</p>
+                        </div>
                     </div>
 
-                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;"
+
+                    <div class="col-12 col-md-3 p-1">
+                        <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                            onmouseover="this.style.backgroundColor='#007BFF'"
+                            onmouseout="this.style.backgroundColor='#333'">
+                            <div>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <span style="font-size: 3rem;">
+                                        <!-- Replace this with your actual icon -->
+                                        <img src="{{ $what_we_offer['card_3_icon'] }}" alt="Icon 1"
+                                            style="width: 100%;" />
+                                    </span>
+                                    <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                        style="width: 12px; " />
+                                </div>
+                                <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">
+                                    {{ $what_we_offer['card_3_title'] }}
+                                </h3>
+                            </div>
+                            <p style="font-size: 1rem;">{{ $what_we_offer['card_3_description'] }}</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 p-1">
+                        <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                            onmouseover="this.style.backgroundColor='#007BFF'"
+                            onmouseout="this.style.backgroundColor='#333'">
+                            <div>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <span style="font-size: 3rem;">
+                                        <!-- Replace this with your actual icon -->
+                                        <img src="{{ $what_we_offer['card_4_icon'] }}" alt="Icon 1"
+                                            style="width: 100%;" />
+                                    </span>
+                                    <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                        style="width: 12px; " />
+                                </div>
+                                <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">
+                                    {{ $what_we_offer['card_4_title'] }}
+                                </h3>
+                            </div>
+                            <p style="font-size: 1rem;">{{ $what_we_offer['card_4_description'] }}</p>
+                        </div>
+                    </div>
+
+                    {{-- <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;"
                         onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
                         <div>
                             <div
@@ -400,7 +472,7 @@
                             <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Distance Education</h3>
                         </div>
                         <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -418,73 +490,25 @@
                     Our Partner
                 </span>
                 <div style="font-size: 2.4rem; margin: 16px 0; font-weight: 600; color:white">Collaboration</div>
-                <div style="font-size: 0.8rem; color:white">
-                    Classical Latin Literature From 45 BC, Making it Over 2000 Years old.
-                    Richard McClintock, A Latin Professor At Hampden Sydney College in
-                    Virginia
-                </div>
+
 
             </div>
             <div class="d-flex gap-4"
                 style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
+
                 <div class="d-flex gap-4"
                     style="display: inline-block;white-space: nowrap; animation: scroll 15s linear infinite;">
                     <!-- Icon Card 1 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
-                        <img src="/assets/default/img/custom-imgs/0.png" alt="Next Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Next Ace</span>
-                    </div>
+                    @foreach ($collaborations1 as $collaboration)
+                        <div
+                            style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
+                            <img src="{{ $collaboration->logo_image }}" alt="{{ $collaboration->logo_name }}"
+                                style="width: 48px; height: 48px;" />
+                            <span style="font-size: 1.4rem; font-weight: 600;">{{ $collaboration->logo_name }}</span>
+                        </div>
+                    @endforeach
                     <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/2.png" alt="Cubic Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Cubic Course</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20% ;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/5.png" alt="Spiritual School"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Spiritual School</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/1.png" alt="Circuit Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circuit Course</span>
-                    </div>
 
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
-                        <img src="/assets/default/img/custom-imgs/0.png" alt="Next Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Next Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/2.png" alt="Cubic Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Cubic Course</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20% ;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/5.png" alt="Spiritual School"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Spiritual School</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/1.png" alt="Circuit Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circuit Course</span>
-                    </div>
                 </div>
             </div>
 
@@ -492,122 +516,32 @@
                 style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
                 <div class="d-flex gap-4"
                     style="display: inline-block;white-space: nowrap; animation: scrollRev 15s linear infinite;">
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
 
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
+                    @foreach ($collaborations2 as $collaboration)
+                        <div
+                            style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
+                            <img src="{{ $collaboration->logo_image }}" alt="{{ $collaboration->logo_name }}"
+                                style="width: 48px; height: 48px;" />
+                            <span style="font-size: 1.4rem; font-weight: 600;">{{ $collaboration->logo_name }}</span>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
             <div class="d-flex gap-4"
                 style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
                 <div class="d-flex gap-4"
-                    style="display: inline-block;white-space: nowrap; animation: scroll 15s linear infinite;">
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
+                    style="display: inline-flex; white-space: nowrap; animation: scroll 15s linear infinite;">
 
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
+                    @foreach ($collaborations3 as $collaboration)
+                        <div
+                            style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
+                            <img src="{{ $collaboration->logo_image }}" alt="{{ $collaboration->logo_name }}"
+                                style="width: 48px; height: 48px;" />
+                            <span style="font-size: 1rem; font-weight: 600;">{{ $collaboration->logo_name }}</span>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
 
@@ -624,7 +558,7 @@
 
     <section class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20 py-20">
         <div class="row align-items-center">
-           
+
             <div class="col-12 col-lg-6 gap-2">
                 <div style="color: white;">
                     <span
@@ -645,7 +579,7 @@
                             More →</button>
                     </div>
                 </div>
-                
+
             </div>
             <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
                 <div class="position-relative ">
@@ -664,13 +598,13 @@
     </section>
 
 
-   
+
     {{-- What we done --}}
 
     <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9;">
 
         <!-- Section 3 -->
-        <div style="padding: 2rem 6rem; margin-bottom: 4rem; position: relative;">
+        <div class="px-4" style=" margin-bottom: 4rem; position: relative;">
             <div style="position: absolute; right: 0;">
                 <img src="./assets/default/img/custom-imgs/pattern2.png" alt="Pattern">
             </div>
@@ -678,15 +612,19 @@
                 style="display: inline-block; background-color: #2b6cb0; color: white; padding: 0.5rem 2rem; border-radius: 20px; margin-bottom: 1rem;">
                 What we done
             </span>
-            <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold; width: 60%; color:white;">Why People Choose Our Courses
+            <div class="container">
+                <div class="row" style="display: flex; justify-content: space-between; margin-top: 1rem;">
+                    <div class="col-12 col-md-4">
+                        <div style="font-size: 2rem; font-weight: bold;  color:white;">Why People Choose Our
+                            Courses
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8" style="font-size: 1.5rem; width: 50%;  color:white;">
+                        {{ $home_screen['what_we_done_desc'] }}
                     </div>
                 </div>
-                <div style="font-size: 1.5rem; width: 50%;  color:white;">
-                    {{ $home_screen['what_we_done_desc'] }}
-                </div>
             </div>
+
             {{-- <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem;">
                 <div
                     style="background-color: white; padding: 1rem; border-radius: 10px; text-align: center; transition: background 0.3s ease-in-out;">
@@ -1749,17 +1687,19 @@
             </div>
             <div class="stats-container " style="margin: 4rem 0;">
                 <div class="container position-relative">
-                    <section class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20">
+                    <section
+                        class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20">
                         <div class="row align-items-center">
                             <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
                                 <div class="position-relative ">
                                     <img src="{{ $journey['banner_image'] }}" class="find-instructor-section-hero"
                                         alt="{{ $journey['title'] }}">
-                                    <img src="/assets/default/img/home/circle-4.png" class="find-instructor-section-circle"
-                                        alt="circle">
-                                    <img src="/assets/default/img/home/dot.png" class="find-instructor-section-dots" alt="dots">
-        
-        
+                                    <img src="/assets/default/img/home/circle-4.png"
+                                        class="find-instructor-section-circle" alt="circle">
+                                    <img src="/assets/default/img/home/dot.png" class="find-instructor-section-dots"
+                                        alt="dots">
+
+
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6 gap-2">
@@ -1768,17 +1708,18 @@
                                     </h2>
                                     <p class="font-16 font-weight-normal text-gray mt-10">
                                         {{ $journey['description'] ?? '' }}</p>
-        
-        
+
+
                                 </div>
                             </div>
-        
-        
+
+
                         </div>
                     </section>
                 </div>
             </div>
-            <div class="d-none d-md-block" style="margin-top: 9rem; display: flex; justify-content: center; align-items: center;">
+            <div class="d-none d-md-block"
+                style="margin-top: 9rem; display: flex; justify-content: center; align-items: center;">
                 <img src="{{ $journey['timeline_image'] ?? '' }}" alt="" style="width:100%" />
             </div>
             <div
@@ -1789,56 +1730,29 @@
         </div>
 
     </section>
-
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 96px; margin-bottom: 64px;">
-        <div style="width: 40%;">
-            <img src="{{ $home_screen['faq_banner'] }}" alt="" style="width: 100%;">
-        </div>
-        <div style="width: 50%; color: white;">
-            <div style="padding: 48px 0;">
-                <span
-                    style="background-color: #1E90FF; color: white; padding: 8px 32px; border-radius: 9999px;">FAQuestions</span>
-                <h1 style="font-size: 40px; font-weight: bold; margin-top: 16px;">Frequently Asked Questions</h1>
-                <h1 style="font-size: 40px; font-weight: bold; margin-top: 16px;">(About AI Study In UI Design)</h1>
-                <h1 style="font-size: 18px; margin-top: 16px;">On The Other Hand, We Denounce With Righteous Indignation
+    <div class="container">
+        <div class="row"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 64px;">
+            <div class="col-12 col-md-4" style="width: 40%;">
+                <img src="{{ $home_screen['faq_banner'] }}" alt="" style="width: 100%;">
+            </div>
+            <div class="col-12 col-md-6 " style="color: white;">
+                <div style="padding: 48px 0;">
+                    <span
+                        style="background-color: #1E90FF; color: white; padding: 8px 32px; border-radius: 9999px;">FAQuestions</span>
+                    <h1 style="font-size: 40px; font-weight: bold; margin-top: 16px;">Frequently Asked Questions</h1>
                     And Dislike</h1>
-                <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
-                    <div>
-                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer; background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
-                            onclick="toggleAccordion(this)">
-                            Human-Computer Interaction (HCI)</h2>
-                        <p
-                            style="display: none;  background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
-                            On
-                            the other hand, we denounce with righteous indignation and dislike men
-                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
-                    </div>
-                    <div>
-                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer;  background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
-                            onclick="toggleAccordion(this)">
-                            Data Visualization and Communication</h2>
-                        <p
-                            style="display: none;background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
-                            On the other hand, we denounce with righteous indignation and dislike men
-                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
-                    </div>
-                    <div>
-                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer;  background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
-                            onclick="toggleAccordion(this)">
-                            Natural Language Processing (NLP)</h2>
-                        <p
-                            style="display: none; background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
-                            On the other hand, we denounce with righteous indignation and dislike men
-                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
-                    </div>
-                    <div>
-                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer; background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
-                            onclick="toggleAccordion(this)">
-                            What kind of jobs can UI/UX Design skills get me?</h2>
-                        <p
-                            style="display: none; background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
-                            On the other hand, we denounce with righteous indignation and dislike men
-                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
+                    <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
+                        @foreach ($faqs as $faq)
+                            <div>
+                                <h2 style="font-size: 20px; font-weight: bold; cursor: pointer; background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
+                                    onclick="toggleAccordion(this)">
+                                    {{ $faq->question }}</h2>
+                                <p
+                                    style="display: none;  background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
+                                    {{ $faq->answer }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

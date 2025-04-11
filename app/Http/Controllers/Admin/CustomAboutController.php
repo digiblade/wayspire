@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CustomCollaborationsModal;
+use App\Models\CustomFAQModal;
 use App\Models\CustomHomeScreenModal;
 use App\Models\CustomJourneyModal;
+use App\Models\CustomOfferScreenModal;
 use App\Models\CustomStepsModal;
 use App\Models\HomeSection;
 use Illuminate\Http\Request;
@@ -111,7 +114,7 @@ class CustomAboutController extends Controller
         $step = CustomJourneyModal::findOrFail($id);
 
         $validated = $request->validate([
-           'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
             'description' => 'nullable|string',
 
             'banner_image' => 'nullable|string',
@@ -162,9 +165,9 @@ class CustomAboutController extends Controller
         $step = CustomHomeScreenModal::findOrFail($id);
 
         $validated = $request->validate([
-            'top_nav'=> 'required|string|max:255',
+            'top_nav' => 'required|string|max:255',
             'upscale_banner' => 'nullable|string',
-            'what_we_done_desc'=> 'required|string|max:255',
+            'what_we_done_desc' => 'required|string|max:255',
             'faq_banner' => 'nullable|string',
             'footer_description' => 'required|string|max:255',
         ]);
@@ -181,15 +184,201 @@ class CustomAboutController extends Controller
         $step = CustomHomeScreenModal::findOrFail(1);
 
         $validated = $request->validate([
-            'top_nav'=> 'required|string|max:255',
+            'top_nav' => 'required|string|max:255',
             'upscale_banner' => 'nullable|string',
-            'what_we_done_desc'=> 'required|string|max:255',
+            'what_we_done_desc' => 'required|string|max:255',
             'faq_banner' => 'nullable|string',
             'footer_description' => 'required|string|max:255',
         ]);
 
         $step->update($validated);
 
+        return redirect()->back();
+    }
+
+
+    public function what_we_offer()
+    {
+        $this->authorize('admin_settings_personalization');
+
+        removeContentLocale();
+
+        $what_we_offer = CustomOfferScreenModal::first();
+        $data = [
+            'pageTitle' => trans('admin/main.what_we_offer'),
+            'name' => 'what_we_offer',
+            'what_we_offer' => $what_we_offer
+        ];
+
+        return view('admin.settings.personalization', $data);
+    }
+    public function what_we_offerUpdate(Request $request, $id)
+    {
+        $step = CustomOfferScreenModal::findOrFail($id);
+
+        $validated = $request->validate([
+            'card_1_title' => 'required|string|max:255',
+            'card_1_description' => 'required|string',
+            'card_1_icon' => 'required|string',
+
+            'card_2_title' => 'required|string|max:255',
+            'card_2_description' => 'required|string',
+            'card_2_icon' => 'required|string',
+
+            'card_3_title' => 'required|string|max:255',
+            'card_3_description' => 'required|string',
+            'card_3_icon' => 'required|string',
+
+            'card_4_title' => 'required|string|max:255',
+            'card_4_description' => 'required|string',
+            'card_4_icon' => 'required|string',
+        ]);
+
+        // Handle banner image upload
+
+
+        $step->update($validated);
+
+        return redirect()->route('steps.edit', $id)->with('success', 'Step updated successfully.');
+    }
+    public function what_we_offerStore(Request $request)
+    {
+
+
+        $data = CustomOfferScreenModal::findOrFail(1);
+
+        $validated = $request->validate([
+            'card_1_title' => 'required|string|max:255',
+            'card_1_description' => 'required|string',
+            'card_1_icon' => 'required|string',
+
+            'card_2_title' => 'required|string|max:255',
+            'card_2_description' => 'required|string',
+            'card_2_icon' => 'required|string',
+
+            'card_3_title' => 'required|string|max:255',
+            'card_3_description' => 'required|string',
+            'card_3_icon' => 'required|string',
+
+            'card_4_title' => 'required|string|max:255',
+            'card_4_description' => 'required|string',
+            'card_4_icon' => 'required|string',
+        ]);
+
+        $res =  $data->update($validated);
+        // dd($res);
+        return redirect()->back();
+    }
+
+
+    public function faq()
+    {
+        $faqs = CustomFAQModal::get();
+        $data = [
+            'pageTitle' => trans('admin/main.faq'),
+            'name' => 'faq',
+            'faqs' => $faqs
+        ];
+
+        return view('admin.settings.personalization', $data);
+    }
+
+    public function faqStore(Request $request)
+    {
+        $validated = $request->validate([
+            'question' => 'nullable|string',
+            'answer' => 'required|string|max:255',
+        ]);
+
+        CustomFAQModal::create($validated);
+        return redirect()->back();
+    }
+
+    public function faqEdit($id)
+    {
+        $faq = CustomFAQModal::findOrFail($id);
+        $data = [
+            'pageTitle' => trans('admin/main.faq'),
+            'name' => 'faq',
+            'faq' => $faq
+        ];
+        return view('admin.settings.personalization', $data);
+    }
+
+    public function faqUpdate(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'question' => 'nullable|string',
+            'answer' => 'required|string|max:255',
+        ]);
+
+        $faq = CustomFAQModal::findOrFail($id);
+        $faq->update($validated);
+
+        return redirect("admin/settings/personalization/faq")->with('success', 'Collaboration updated successfully');
+    }
+
+    public function faqDestroy($id)
+    {
+        CustomFAQModal::findOrFail($id)->delete();
+        return redirect()->back();
+    }
+
+
+
+
+    public function collaborations()
+    {
+        $collaborations = CustomCollaborationsModal::get();
+        $data = [
+            'pageTitle' => trans('admin/main.collaborations'),
+            'name' => 'collaborations',
+            'collaborations' => $collaborations
+        ];
+
+        return view('admin.settings.personalization', $data);
+    }
+
+    public function collaborationsStore(Request $request)
+    {
+        $validated = $request->validate([
+            'logo_image' => 'nullable|string',
+            'logo_name' => 'required|string|max:255',
+            'row_index' => 'required|string|max:255',
+        ]);
+
+        CustomCollaborationsModal::create($validated);
+        return redirect()->back();
+    }
+
+    public function collaborationsEdit($id)
+    {
+        $collaboration = CustomCollaborationsModal::findOrFail($id);
+        $data = [
+            'pageTitle' => trans('admin/main.collaborations'),
+            'name' => 'collaborations_edit',
+            'collaboration' => $collaboration
+        ];
+        return view('admin.settings.personalization', $data);
+    }
+
+    public function collaborationsUpdate(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'logo_image' => 'nullable|string',
+            'logo_name' => 'required|string|max:255',
+            'row_index' => 'required|string|max:255',
+        ]);
+
+        $collaboration = CustomCollaborationsModal::findOrFail($id);
+        $collaboration->update($validated);
+
+        return redirect("admin/settings/personalization/collaborations")->with('success', 'Collaboration updated successfully');
+    }
+
+    public function collaborationsDestroy($id)
+    {
+        CustomCollaborationsModal::findOrFail($id)->delete();
         return redirect()->back();
     }
 }
