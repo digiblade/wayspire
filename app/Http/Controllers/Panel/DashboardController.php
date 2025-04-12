@@ -91,6 +91,21 @@ class DashboardController extends Controller
 
         return view(getTemplate() . '.panel.dashboard.index', $data);
     }
+    public function resume_builder()
+    {
+        $user = auth()->user();
+
+        $nextBadge = $user->getBadges(true, true);
+
+        $data = [
+            'pageTitle' => "Resume Builder",
+            'nextBadge' => $nextBadge
+        ];
+
+       
+
+        return view(getTemplate() . '.panel.dashboard.resume_builder', $data);
+    }
 
     private function showGiftModal($user)
     {

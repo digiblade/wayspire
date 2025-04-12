@@ -52,7 +52,7 @@
     <div class="d-flex justify-content-end">
         @include('web.default.panel.includes.sidebar')
 
-        <div class="panel-content">
+        <div class="panel-content bg-light" >
             @yield('content')
         </div>
     </div>

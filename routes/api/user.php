@@ -4,7 +4,6 @@ use App\Http\Controllers\Api\Panel\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([], function () {
-
     Route::get('/', function () {
         return 'test panel';
     });

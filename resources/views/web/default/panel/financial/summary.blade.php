@@ -3,7 +3,7 @@
 
 @section('content')
     @if($accountings->count() > 0)
-        <section>
+        <section class="bg-light">
             <h2 class="section-title">{{ trans('financial.financial_documents') }}</h2>
 
             <div class="panel-section-card py-20 px-25 mt-20">

@@ -23,12 +23,13 @@ class CustomStepController extends Controller
         // dd($steps['title']);
         $homeDefaultStatistics = $this->getHomeDefaultStatistics();
         $home_screen = CustomHomeScreenModal::first();
-
+       
         $data = [
             'about' => $steps,
             "journey"=>$journey,
             'homeDefaultStatistics' => $homeDefaultStatistics,
-            'home_screen'=>$home_screen
+            'home_screen'=>$home_screen,
+            'api_key' => env('API_KEY'),
 
         ];
         return view(getTemplate() . '.home.about', $data);

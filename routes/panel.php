@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -9,8 +10,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Panel', 'prefix' => 'panel', 'middleware' => ['impersonate', 'panel', 'share', 'check_maintenance', 'check_restriction']], function () {
+    
 
+    
+    
     Route::get('/', 'DashboardController@dashboard');
+    Route::get('/resume-builder', 'DashboardController@resume_builder');
+    
     Route::post('/content-delete-request', 'ContentDeleteRequestController@store');
 
     Route::group(['prefix' => 'users'], function () {

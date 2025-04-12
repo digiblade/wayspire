@@ -75,7 +75,7 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="text-light">{{ $home_screen['footer_description'] }}</div>
+                        <div class="text-light">{{ $home_screen['footer_description']??"" }}</div>
                         <div class="footer-social my-4">
                             @if (!empty($socials) and count($socials))
                                 @foreach ($socials as $social)

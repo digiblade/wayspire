@@ -57,7 +57,7 @@
 @endphp
 
 
-<div class="webinar-progress d-block d-lg-flex align-items-center p-15 panel-shadow bg-white rounded-sm">
+<div class="webinar-progress d-block d-lg-flex align-items-center p-15 panel-shadow bg-white rounded-sm bg-light" >
 
     @foreach($progressSteps as $key => $step)
         <div class="progress-item d-flex align-items-center">
