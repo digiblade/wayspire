@@ -27,7 +27,12 @@
                                 $items = [
                                     'page_background',
                                     'home_sections',
-                                    'top_bar',
+                                    'about_us',
+                                    'journey',
+                                    'what_we_offer',
+                                    'collaborations',
+                                    'faq',
+                                    'home_screen',
                                     'home_hero',
                                     'home_hero2',
                                     'home_video_or_image_box',

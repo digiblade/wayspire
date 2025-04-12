@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mixins\RegistrationBonus\RegistrationBonusAccounting;
 use App\Models\Affiliate;
+use App\Models\CustomHomeScreenModal;
 use App\Models\Verification;
 use App\User;
 use Illuminate\Http\Request;
@@ -28,10 +29,12 @@ class VerificationController extends Controller
                 $user = User::find($verification->user_id);
 
                 if (!empty($user) and $user->status != User::$active) {
+                    $home_screen = CustomHomeScreenModal::first();
                     $data = [
                         'pageTitle' => trans('auth.email_confirmation'),
                         'username' => !empty($verification->mobile) ? 'mobile' : 'email',
                         'usernameValue' => !empty($verification->mobile) ? $verification->mobile : $verification->email,
+                        'home_screen'=>$home_screen
                     ];
 
                     return view('web.default.auth.verification', $data);

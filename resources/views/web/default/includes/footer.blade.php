@@ -66,7 +66,7 @@
 
             <div class="container">
                 <div class="row text-light">
-                    <div class="col-5">
+                    <div class="col-4 col-md-3">
                         <div class="footer-logo">
                             <a href="/">
                                 @if (!empty($generalSettings['footer_logo']))
@@ -75,10 +75,7 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="text-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error ducimus
-                            unde alias illum
-                            quod velit ea tempora sit delectus natus sequi nostrum id, obcaecati sint iure quisquam ut
-                            iusto sunt?</div>
+                        <div class="text-light">{{ $home_screen['footer_description']??"" }}</div>
                         <div class="footer-social my-4">
                             @if (!empty($socials) and count($socials))
                                 @foreach ($socials as $social)
@@ -89,15 +86,16 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-1"></div>
-                    <div class="col-2">
+                    {{-- <div class="col-1"></div> --}}
+
+                    <div class="col-6 col-md-2">
                         <a class="text-light " style="font-weight: bold">Resource</a>
                         <ul>
                             <li style="margin:  10px 0;">Article</li>
                             <li>Blog</li>
                         </ul>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-md-2">
                         <a class="text-light " style="font-weight: bold">Plans</a>
                         <ul>
                             <li style="margin:  10px 0;">For Individuals</li>
@@ -107,7 +105,7 @@
 
                         </ul>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-md-2">
                         <a class="text-light " style="font-weight: bold">Support</a>
                         <ul>
                             <li style="margin:  10px 0;">24X7 Call</li>
@@ -117,6 +115,8 @@
 
                         </ul>
                     </div>
+
+
 
 
                 </div>

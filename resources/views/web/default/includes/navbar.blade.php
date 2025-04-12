@@ -18,7 +18,23 @@
         }
     }
 @endphp
+<style>
+    .custom-height {
+    height: 70px !important;
+}
 
+@media (max-width: 576px) {
+    .custom-height {
+        height: 30px !important;
+    }
+    
+}
+@media (max-width: 991px){
+    .navbar-brand img {
+        height: 30px !important;
+    }
+}
+</style>
 <div id="navbarVacuum"></div>
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="color:white !important">
     <div class="{{ (!empty($isPanel) and $isPanel) ? 'container-fluid' : 'container-fluid' }}">
@@ -27,16 +43,16 @@
             <a class="navbar-brand navbar-order d-flex align-items-center justify-content-center mr-0 {{ (empty($navBtnUrl) and empty($navBtnText)) ? 'ml-auto' : '' }}"
                 href="/">
                 @if (!empty($generalSettings['logo']))
-                    <img src="{{ $generalSettings['logo'] }}" class="img-contain w-50" alt="site logo">
+                    <img src="{{ $generalSettings['logo'] }}" class="img-contain custom-height"  alt="site logo">
                 @endif
             </a>
             <span> <button class="navbar-toggler navbar-order" type="button" id="navbarToggle">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="mx-lg-30 d-none d-lg-flex flex-grow-1 navbar-toggle-content " id="navbarContent">
+                <div class="mx-lg-30 d-none d-lg-flex flex-grow-1 navbar-toggle-content " id="navbarContent"  >
                     <div class="navbar-toggle-header text-right d-lg-none">
-                        <button class="btn-transparent" id="navbarClose">
+                        <button class="btn-transparent" id="navbarClose" style="color: white">
                             <i data-feather="x" width="32" height="32"></i>
                         </button>
                     </div>
@@ -129,7 +145,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/blog/about">About Us</a>
+                            <a class="nav-link" style="color:white" href="/about-us">About Us</a>
                         </li>
 
                     </ul>

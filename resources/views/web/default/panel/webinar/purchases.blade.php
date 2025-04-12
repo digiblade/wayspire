@@ -5,7 +5,7 @@
 
 @section('content')
     <section>
-        <h2 class="section-title">{{ trans('panel.my_activity') }}</h2>
+        <h2 class="section-title text-light">{{ trans('panel.my_activity') }}</h2>
 
         <div class="activities-container mt-25 p-20 p-lg-35">
             <div class="row">

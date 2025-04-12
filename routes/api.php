@@ -14,13 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['prefix' => '/development'], function () {
 
+
+Route::group(['prefix' => '/development'], function () {
+    Route::post('/generate-pdf', 'PdfControllerApi@generate');
     Route::get('/', function () {
         return 'api test';
     });
 
-    Route::middleware('api') ->group(base_path('routes/api/auth.php'));
+    Route::middleware('api')->group(base_path('routes/api/auth.php'));
 
     Route::namespace('Web')->group(base_path('routes/api/guest.php'));
 
@@ -32,8 +34,4 @@ Route::group(['prefix' => '/development'], function () {
     });
 
     Route::prefix('instructor')->middleware(['api.auth', 'api.level-access:teacher'])->namespace('Instructor')->group(base_path('routes/api/instructor.php'));
-
-
-
-
 });

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\traits\UserFormFieldsTrait;
 use App\Mixins\RegistrationBonus\RegistrationBonusAccounting;
 use App\Models\Affiliate;
+use App\Models\CustomHomeScreenModal;
 use App\Models\Reward;
 use App\Models\RewardAccounting;
 use App\Models\Role;
@@ -69,14 +70,15 @@ class RegisterController extends Controller
 
         $accountType = !empty($request->old('account_type')) ? $request->old('account_type') : "user";
         $formFields = $this->getFormFieldsByUserType($request, $accountType, true);
-
+        $home_screen = CustomHomeScreenModal::first();
         $data = [
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
             'pageRobot' => $pageRobot,
             'referralCode' => $referralCode,
             'referralSettings' => $referralSettings,
-            'formFields' => $formFields
+            'formFields' => $formFields,
+            'home_screen' => $home_screen
         ];
 
         return view(getTemplate() . '.auth.register', $data);

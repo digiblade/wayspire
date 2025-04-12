@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\CartManagerController;
 use App\Mixins\Logs\UserLoginHistoryMixin;
+use App\Models\CustomHomeScreenModal;
 use App\Models\Reward;
 use App\Models\RewardAccounting;
 use App\Models\UserSession;
@@ -52,11 +53,12 @@ class LoginController extends Controller
         $pageTitle = !empty($seoSettings['title']) ? $seoSettings['title'] : trans('site.login_page_title');
         $pageDescription = !empty($seoSettings['description']) ? $seoSettings['description'] : trans('site.login_page_title');
         $pageRobot = getPageRobot('login');
-
+        $home_screen = CustomHomeScreenModal::first();
         $data = [
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
             'pageRobot' => $pageRobot,
+            "home_screen"=>$home_screen
         ];
         // dd();
         return view(getTemplate() . '.auth.login', $data);

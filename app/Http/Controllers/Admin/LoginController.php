@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mixins\Logs\UserLoginHistoryMixin;
+use App\Models\CustomHomeScreenModal;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,8 +47,10 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+        $home_screen = CustomHomeScreenModal::first();
         $data = [
             'pageTitle' => trans('auth.login'),
+            'home_screen' => $home_screen,
         ];
 
 
@@ -69,7 +72,9 @@ class LoginController extends Controller
      */
     protected function validateLogin(Request $request)
     {
-        $this->validate($request, [
+        $this->validate(
+            $request,
+            [
                 'email' => 'required|email|exists:users,email,status,active',
                 'password' => 'required|min:4',
             ]

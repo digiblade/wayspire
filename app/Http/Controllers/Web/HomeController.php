@@ -7,6 +7,11 @@ use App\Mixins\Installment\InstallmentPlans;
 use App\Models\AdvertisingBanner;
 use App\Models\Blog;
 use App\Models\Bundle;
+use App\Models\CustomCollaborationsModal;
+use App\Models\CustomFAQModal;
+use App\Models\CustomHomeScreenModal;
+use App\Models\CustomJourneyModal;
+use App\Models\CustomOfferScreenModal;
 use App\Models\FeatureWebinar;
 use App\Models\HomePageStatistic;
 use App\Models\HomeSection;
@@ -365,6 +370,16 @@ class HomeController extends Controller
                 $homeCustomStatistics = HomePageStatistic::query()->orderBy('order', 'asc')->limit(4)->get();
             }
         }
+        $journey = CustomJourneyModal::first();
+        $home_screen = CustomHomeScreenModal::first();
+        $what_we_offer = CustomOfferScreenModal::first();
+
+        $collaborations1 = CustomCollaborationsModal::where('row_index', 1)->get();
+        $collaborations2 = CustomCollaborationsModal::where('row_index', 2)->get();
+        $collaborations3 = CustomCollaborationsModal::where('row_index', 3)->get();
+        $faqs = CustomFAQModal::get();
+
+
 
         $data = [
             'pageTitle' => $pageTitle,
@@ -397,6 +412,13 @@ class HomeController extends Controller
             'findInstructorSection' => $findInstructorSection ?? null,
             'rewardProgramSection' => $rewardProgramSection ?? null,
             'becomeInstructorSection' => $becomeInstructorSection ?? null,
+            'journey' => $journey,
+            'home_screen' => $home_screen,
+            'what_we_offer' => $what_we_offer,
+            'faqs' => $faqs,
+            'collaborations1' => $collaborations1,
+            'collaborations2' => $collaborations2,
+            'collaborations3' => $collaborations3,
             'forumSection' => $forumSection ?? null,
         ];
 
