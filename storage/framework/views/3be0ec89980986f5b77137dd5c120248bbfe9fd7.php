@@ -30,6 +30,7 @@
                                         <th>Id</th>
                                         <th class="text-left">Title</th>
                                         <th class="text-left">Location</th>
+                                        <th class="text-left">Company</th>
                                         <th class="text-left">Status</th>
                                         <th width="120"><?php echo e(trans('admin/main.actions')); ?></th>
                                     </tr>
@@ -47,15 +48,16 @@
 
                                             </td>
                                             
-                                            
-                                            
-                                            
 
                                             <td class="text-left">
                                                 <?php echo e($user->location); ?>
 
 
                                             </td>
+                                            <td class="text-left">
+                                                <?php echo e($user->company->full_name); ?>
+
+                                                </td>
                                             <td class="text-left"><?php echo e($user->status); ?></td>
                                             <td class="text-center mb-2" width="120">
 

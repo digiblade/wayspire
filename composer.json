@@ -12,7 +12,7 @@
         "authorizenet/authorizenet": "^2.0",
         "aws/aws-sdk-php": "^3.275",
         "barryvdh/laravel-debugbar": "^3.8",
-        "barryvdh/laravel-dompdf": "^2.0",
+        "barryvdh/laravel-dompdf": "^2.2",
         "carlos-meneses/laravel-mpdf": "^2.1",
         "cashuanony/phpanonymous": "dev-master",
         "chehivskiy/i18n-arabic": "^1.0",

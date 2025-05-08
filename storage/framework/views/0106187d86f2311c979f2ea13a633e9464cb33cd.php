@@ -65,7 +65,7 @@ unset($__errorArgs, $__bag); ?>
 
             <div class="container">
                 <div class="row text-light">
-                    <div class="col-5">
+                    <div class="col-4 col-md-3">
                         <div class="footer-logo">
                             <a href="/">
                                 <?php if(!empty($generalSettings['footer_logo'])): ?>
@@ -74,10 +74,7 @@ unset($__errorArgs, $__bag); ?>
                                 <?php endif; ?>
                             </a>
                         </div>
-                        <div class="text-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error ducimus
-                            unde alias illum
-                            quod velit ea tempora sit delectus natus sequi nostrum id, obcaecati sint iure quisquam ut
-                            iusto sunt?</div>
+                        <div class="text-light"><?php echo e($home_screen['footer_description']??""); ?></div>
                         <div class="footer-social my-4">
                             <?php if(!empty($socials) and count($socials)): ?>
                                 <?php $__currentLoopData = $socials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $social): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -88,15 +85,16 @@ unset($__errorArgs, $__bag); ?>
                             <?php endif; ?>
                         </div>
                     </div>
-                    <div class="col-1"></div>
-                    <div class="col-2">
+                    
+
+                    <div class="col-6 col-md-2">
                         <a class="text-light " style="font-weight: bold">Resource</a>
                         <ul>
                             <li style="margin:  10px 0;">Article</li>
                             <li>Blog</li>
                         </ul>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-md-2">
                         <a class="text-light " style="font-weight: bold">Plans</a>
                         <ul>
                             <li style="margin:  10px 0;">For Individuals</li>
@@ -106,7 +104,7 @@ unset($__errorArgs, $__bag); ?>
 
                         </ul>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-md-2">
                         <a class="text-light " style="font-weight: bold">Support</a>
                         <ul>
                             <li style="margin:  10px 0;">24X7 Call</li>
@@ -116,6 +114,8 @@ unset($__errorArgs, $__bag); ?>
 
                         </ul>
                     </div>
+
+
 
 
                 </div>

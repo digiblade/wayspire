@@ -30,12 +30,8 @@
         animation: scroll 15s linear infinite;
     ">
         <span>
-            <span style="color: orange;">475092+ </span>
-            No. of Students Counselled &nbsp;|&nbsp;
-        </span>
-        <span>
-            <span style="color: orange;">475092+ </span>
-            No. of Assisted in Placement &nbsp;|&nbsp;
+            <?php echo e($home_screen['top_nav'] ?? ""); ?>
+
         </span>
 
     </div>

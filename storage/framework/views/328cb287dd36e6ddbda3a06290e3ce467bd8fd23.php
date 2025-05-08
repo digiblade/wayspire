@@ -17,22 +17,20 @@
             <?php if(empty($heroSectionData['is_video_background'])): ?> style="background-image: url('<?php echo e($heroSectionData['hero_background']); ?>')" <?php endif; ?>>
 
             <?php if($heroSection == '1'): ?>
-                
                 <img src="./assets/default/img/custom-imgs/banner1.png" class="img-cover" alt="">
-                
             <?php endif; ?>
 
             <div class="container-fluid user-select-none">
-                <div class="col-12"
-                    style="padding: 0 2rem;display: flex;flex: 1;height: 100%;width: 100%;gap: 4rem;justify-content: space-between;align-items: center;padding-bottom: 4rem;/* background: linear-gradient(60deg,#303d65,#2c313b 60%,#48372c 70%); */color:white">
-                    
+                <div class="col-12 px-0 px-md-4"
+                    style="display: flex;flex: 1;height: 100%;width: 100%;gap: 4rem;justify-content: space-between;align-items: center;padding-bottom: 4rem;/* background: linear-gradient(60deg,#303d65,#2c313b 60%,#48372c 70%); */color:white">
+
                     <style>
                         .carousel-inner img {
                             height: 400px;
                             object-fit: cover;
                         }
                     </style>
-                    <div class="col-8 container mt-5">
+                    <div class="col-12 col-md-8  container mt-5">
                         <div id="autoCarousel" class="custom-carousel">
                             <!-- Indicators -->
                             <div class="custom-carousel-indicators">
@@ -43,14 +41,9 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
 
-                            <!-- Carousel Items -->
-
-
-
-                            <div class="custom-carousel-inner">
+                            <div class="custom-carousel-inner ">
                                 <?php $__currentLoopData = $carousel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bestSaleWebinar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    
-                                    <div class="custom-carousel-item active p-4" style="display:flex;">
+                                    <div class="custom-carousel-item active p-0 p-md-4 " style="display:flex;">
                                         <div class="custom-carousel-caption"
                                             style="width:50%; height:100%;display:flex; flex-direction:column; gap:1rem">
                                             <h2 class="fw-bold" style="font-size:2rem">
@@ -68,121 +61,122 @@
                                 
                             </div>
                         </div>
+                        <style>
+                            .custom-carousel {
+                                position: relative;
+                                width: 100%;
+                                overflow: hidden;
+                            }
+
+                            .custom-carousel-inner {
+                                display: flex;
+                                transition: transform 0.5s ease-in-out;
+                            }
+
+                            .custom-carousel-item {
+                                min-width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: start;
+                                /* background-color: black; */
+                                position: relative;
+                                padding: 6rem
+                            }
+
+                            .custom-carousel-item img {
+                                /* width: 100%; */
+                                height: 50vh;
+
+                            }
+
+                            .custom-carousel-caption {
+                                /* position: absolute; */
+                                /* bottom: 10%;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 50%; */
+                                /* transform: translateX(-50%); */
+                                color: white;
+                                /* text-align: center; */
+                            }
+
+                            .custom-carousel-btn {
+                                background-color: #f97316;
+                                color: black;
+                                padding: 0.5rem 1rem;
+                                border-radius: 9999px;
+                                cursor: pointer;
+                                transition: background-color 0.2s ease-in-out;
+                            }
+
+                            .custom-carousel-btn:hover {
+                                background-color: #ea580c;
+                            }
+
+                            .custom-carousel-indicators {
+                                position: absolute;
+                                bottom: 5px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                display: flex;
+                                gap: 8px;
+                            }
+
+                            .custom-carousel-indicators button {
+                                width: 10px;
+                                height: 10px;
+                                background-color: white;
+                                border: none;
+                                border-radius: 50%;
+                                cursor: pointer;
+                                opacity: 0.5;
+                            }
+
+                            .custom-carousel-indicators .active {
+                                opacity: 1;
+                                background-color: #f97316;
+                            }
+                        </style>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                const carousel = document.querySelector(".custom-carousel-inner");
+                                const indicators = document.querySelectorAll(".custom-carousel-indicators button");
+                                let currentIndex = 0;
+                                let interval;
+
+                                function updateCarousel(index) {
+                                    currentIndex = index;
+                                    const offset = -index * 100;
+                                    carousel.style.transform = `translateX(${offset}%)`;
+                                    indicators.forEach((btn, i) => btn.classList.toggle("active", i === index));
+                                }
+
+                                function nextSlide() {
+                                    currentIndex = (currentIndex + 1) % indicators.length;
+                                    updateCarousel(currentIndex);
+                                }
+
+                                function startAutoSlide() {
+                                    interval = setInterval(nextSlide, 3000);
+                                }
+
+                                function stopAutoSlide() {
+                                    clearInterval(interval);
+                                }
+
+                                indicators.forEach((button, index) => {
+                                    button.addEventListener("click", () => {
+                                        stopAutoSlide();
+                                        updateCarousel(index);
+                                        startAutoSlide();
+                                    });
+                                });
+
+                                startAutoSlide();
+                            });
+                        </script>
                     </div>
 
-                    <style>
-                        .custom-carousel {
-                            position: relative;
-                            width: 100%;
-                            overflow: hidden;
-                        }
 
-                        .custom-carousel-inner {
-                            display: flex;
-                            transition: transform 0.5s ease-in-out;
-                        }
-
-                        .custom-carousel-item {
-                            min-width: 100%;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: start;
-                            /* background-color: black; */
-                            position: relative;
-                            padding: 6rem
-                        }
-
-                        .custom-carousel-item img {
-                            /* width: 100%; */
-                            height: 50vh;
-
-                        }
-
-                        .custom-carousel-caption {
-                            /* position: absolute; */
-                            /* bottom: 10%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 50%; */
-                            /* transform: translateX(-50%); */
-                            color: white;
-                            /* text-align: center; */
-                        }
-
-                        .custom-carousel-btn {
-                            background-color: #f97316;
-                            color: black;
-                            padding: 0.5rem 1rem;
-                            border-radius: 9999px;
-                            cursor: pointer;
-                            transition: background-color 0.2s ease-in-out;
-                        }
-
-                        .custom-carousel-btn:hover {
-                            background-color: #ea580c;
-                        }
-
-                        .custom-carousel-indicators {
-                            position: absolute;
-                            bottom: 5px;
-                            left: 50%;
-                            transform: translateX(-50%);
-                            display: flex;
-                            gap: 8px;
-                        }
-
-                        .custom-carousel-indicators button {
-                            width: 10px;
-                            height: 10px;
-                            background-color: white;
-                            border: none;
-                            border-radius: 50%;
-                            cursor: pointer;
-                            opacity: 0.5;
-                        }
-
-                        .custom-carousel-indicators .active {
-                            opacity: 1;
-                            background-color: #f97316;
-                        }
-                    </style>
-
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            const carousel = document.querySelector(".custom-carousel-inner");
-                            const indicators = document.querySelectorAll(".custom-carousel-indicators button");
-                            let currentIndex = 0;
-                            let interval;
-
-                            function updateCarousel(index) {
-                                currentIndex = index;
-                                const offset = -index * 100;
-                                carousel.style.transform = `translateX(${offset}%)`;
-                                indicators.forEach((btn, i) => btn.classList.toggle("active", i === index));
-                            }
-
-                            function nextSlide() {
-                                currentIndex = (currentIndex + 1) % indicators.length;
-                                updateCarousel(currentIndex);
-                            }
-
-                            function startAutoSlide() {
-                                interval = setInterval(nextSlide, 3000);
-                            }
-
-                            function stopAutoSlide() {
-                                clearInterval(interval);
-                            }
-
-                            indicators.forEach((button, index) => {
-                                button.addEventListener("click", () => {
-                                    stopAutoSlide();
-                                    updateCarousel(index);
-                                    startAutoSlide();
-                                });
-                            });
-
-                            startAutoSlide();
-                        });
-                    </script>
 
 
                     
@@ -190,7 +184,7 @@
 
 
 
-                    <div class="col-4"
+                    <div class="col-12 col-md-4"
                         style="flex: 1; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center;">
                         <div style="display: inline-flex; justify-content: center;">
                             <div
@@ -267,8 +261,9 @@
 
 
     <section class="container">
-        <div style="display: flex; padding: 1rem 24px; justify-content: space-between; gap: 16px; color:white">
-            <div style="width:30%">
+        <div class="row"
+            style="display: flex; padding: 1rem 24px; justify-content: space-between; gap: 16px; color:white">
+            <div class="col-12 col-md-3">
                 <h1 style="font-size: 3rem;">What We Offer</h1>
                 <div style="font-size: 1.4rem; margin-top: 12px;">It's All About Design Courses.</div>
                 <div style="font-size: 1.4rem; margin-bottom: 12px;">Because Thats What We Do.</div>
@@ -277,81 +272,104 @@
                     Explore More →
                 </button>
             </div>
-            <div style="flex: 1;">
-                <div style="display: flex; flex-direction: row; gap: 16px; min-height: 96px;">
-                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
-                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
-                        <div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                                <span style="font-size: 3rem;">
-                                    <!-- Replace this with your actual icon -->
-                                    <img src="/assets/default/img/custom-imgs/mobile.png" alt="Icon 1"
-                                        style="width: 100%;" />
-                                </span>
-                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
-                                    style="width: 12px; " />
+            <div class="col-12 col-md-9 container" style="flex: 1;">
+                <div class="row gap-1" style="  min-height: 96px;">
+                    <div class="col-12 col-md-3 p-1">
+                        <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                            onmouseover="this.style.backgroundColor='#007BFF'"
+                            onmouseout="this.style.backgroundColor='#333'">
+                            <div>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <span style="font-size: 3rem;">
+                                        <!-- Replace this with your actual icon -->
+                                        <img src="<?php echo e($what_we_offer['card_1_icon']); ?>" alt="Icon 1"
+                                            style="width: 100%;" />
+                                    </span>
+                                    <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                        style="width: 12px; " />
+                                </div>
+                                <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">
+                                    <?php echo e($what_we_offer['card_1_title']); ?>
+
+                                </h3>
                             </div>
-                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Training & Internship
-                            </h3>
+                            <p style="font-size: 1rem;"><?php echo e($what_we_offer['card_1_description']); ?></p>
                         </div>
-                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
+                    </div>
+                    <div class="col-12 col-md-3 p-1">
+                        <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                            onmouseover="this.style.backgroundColor='#007BFF'"
+                            onmouseout="this.style.backgroundColor='#333'">
+                            <div>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <span style="font-size: 3rem;">
+                                        <!-- Replace this with your actual icon -->
+                                        <img src="<?php echo e($what_we_offer['card_2_icon']); ?>" alt="Icon 1"
+                                            style="width: 100%;" />
+                                    </span>
+                                    <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                        style="width: 12px; " />
+                                </div>
+                                <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">
+                                    <?php echo e($what_we_offer['card_2_title']); ?>
+
+                                </h3>
+                            </div>
+                            <p style="font-size: 1rem;"><?php echo e($what_we_offer['card_2_description']); ?></p>
+                        </div>
                     </div>
 
-                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;"
-                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
-                        <div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                                <span style="font-size: 3rem;">
-                                    <!-- Replace this with your actual icon -->
-                                    <img src="/assets/default/img/custom-imgs/hourglass.png" alt="Icon 2"
-                                        style="width: 100%;" />
-                                </span>
-                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
-                                    style="" />
+
+                    <div class="col-12 col-md-3 p-1">
+                        <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                            onmouseover="this.style.backgroundColor='#007BFF'"
+                            onmouseout="this.style.backgroundColor='#333'">
+                            <div>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <span style="font-size: 3rem;">
+                                        <!-- Replace this with your actual icon -->
+                                        <img src="<?php echo e($what_we_offer['card_3_icon']); ?>" alt="Icon 1"
+                                            style="width: 100%;" />
+                                    </span>
+                                    <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                        style="width: 12px; " />
+                                </div>
+                                <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">
+                                    <?php echo e($what_we_offer['card_3_title']); ?>
+
+                                </h3>
                             </div>
-                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Placement Assistance
-                            </h3>
+                            <p style="font-size: 1rem;"><?php echo e($what_we_offer['card_3_description']); ?></p>
                         </div>
-                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
+                    </div>
+                    <div class="col-12 col-md-3 p-1">
+                        <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px;"
+                            onmouseover="this.style.backgroundColor='#007BFF'"
+                            onmouseout="this.style.backgroundColor='#333'">
+                            <div>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <span style="font-size: 3rem;">
+                                        <!-- Replace this with your actual icon -->
+                                        <img src="<?php echo e($what_we_offer['card_4_icon']); ?>" alt="Icon 1"
+                                            style="width: 100%;" />
+                                    </span>
+                                    <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
+                                        style="width: 12px; " />
+                                </div>
+                                <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">
+                                    <?php echo e($what_we_offer['card_4_title']); ?>
+
+                                </h3>
+                            </div>
+                            <p style="font-size: 1rem;"><?php echo e($what_we_offer['card_4_description']); ?></p>
+                        </div>
                     </div>
 
-                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;"
-                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
-                        <div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                                <span style="font-size: 2.4rem;">
-                                    <!-- Replace this with your actual icon -->
-                                    <img src="/assets/default/img/custom-imgs/lighbulb.png" alt="Icon 3"
-                                        style="width: 100%" />
-                                </span>
-                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
-                                    style="" />
-                            </div>
-                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Career Guidance</h3>
-                        </div>
-                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
-                    </div>
-
-                    <div style="background-color: #333; border-radius: 8px; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 24px; cursor: pointer; transition: background-color 0.3s;"
-                        onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='#333'">
-                        <div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                                <span style="font-size: 2.4rem;">
-                                    <!-- Replace this with your actual icon -->
-                                    <img src="/assets/default/img/custom-imgs/lighbulb.png" alt="Icon 3"
-                                        style="width: 100%" />
-                                </span>
-                                <img src="/assets/default/img/custom-imgs/arrow-forward.png" alt="Expand Icon"
-                                    style="" />
-                            </div>
-                            <h3 style="font-size: 1.4rem; font-weight: bold; margin-bottom: 24px;">Distance Education</h3>
-                        </div>
-                        <p style="font-size: 1rem;">There Are Many Variations Of Passages Of Lorem Ipsum Available,</p>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -369,73 +387,25 @@
                     Our Partner
                 </span>
                 <div style="font-size: 2.4rem; margin: 16px 0; font-weight: 600; color:white">Collaboration</div>
-                <div style="font-size: 0.8rem; color:white">
-                    Classical Latin Literature From 45 BC, Making it Over 2000 Years old.
-                    Richard McClintock, A Latin Professor At Hampden Sydney College in
-                    Virginia
-                </div>
+
 
             </div>
             <div class="d-flex gap-4"
                 style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
+
                 <div class="d-flex gap-4"
                     style="display: inline-block;white-space: nowrap; animation: scroll 15s linear infinite;">
                     <!-- Icon Card 1 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
-                        <img src="/assets/default/img/custom-imgs/0.png" alt="Next Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Next Ace</span>
-                    </div>
+                    <?php $__currentLoopData = $collaborations1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $collaboration): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div
+                            style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
+                            <img src="<?php echo e($collaboration->logo_image); ?>" alt="<?php echo e($collaboration->logo_name); ?>"
+                                style="width: 48px; height: 48px;" />
+                            <span style="font-size: 1.4rem; font-weight: 600;"><?php echo e($collaboration->logo_name); ?></span>
+                        </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/2.png" alt="Cubic Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Cubic Course</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20% ;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/5.png" alt="Spiritual School"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Spiritual School</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/1.png" alt="Circuit Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circuit Course</span>
-                    </div>
 
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
-                        <img src="/assets/default/img/custom-imgs/0.png" alt="Next Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Next Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/2.png" alt="Cubic Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Cubic Course</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20% ;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/5.png" alt="Spiritual School"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Spiritual School</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/1.png" alt="Circuit Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circuit Course</span>
-                    </div>
                 </div>
             </div>
 
@@ -443,122 +413,32 @@
                 style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
                 <div class="d-flex gap-4"
                     style="display: inline-block;white-space: nowrap; animation: scrollRev 15s linear infinite;">
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
 
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
+                    <?php $__currentLoopData = $collaborations2; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $collaboration): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div
+                            style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
+                            <img src="<?php echo e($collaboration->logo_image); ?>" alt="<?php echo e($collaboration->logo_name); ?>"
+                                style="width: 48px; height: 48px;" />
+                            <span style="font-size: 1.4rem; font-weight: 600;"><?php echo e($collaboration->logo_name); ?></span>
+                        </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                 </div>
             </div>
             <div class="d-flex gap-4"
                 style="margin-top: 4px; padding: 0.75rem 4rem; color: white; overflow: hidden; white-space: nowrap; position: relative;">
                 <div class="d-flex gap-4"
-                    style="display: inline-block;white-space: nowrap; animation: scroll 15s linear infinite;">
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
+                    style="display: inline-flex; white-space: nowrap; animation: scroll 15s linear infinite;">
 
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/7.png" alt="Dream Ace"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Dream Ace</span>
-                    </div>
-                    <!-- Icon Card 2 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/3.png" alt="Global Tech"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Global Tech</span>
-                    </div>
-                    <!-- Icon Card 3 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/6.png" alt="Circle Course"
-                            style="width: 48px; height: 48px;" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">Circle Course</span>
-                    </div>
-                    <!-- Icon Card 4 -->
-                    <div
-                        style="margin-right: 32px; width: 20%; aspect-ratio:1;   color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px;">
-                        <img src="/assets/default/img/custom-imgs/4.png" alt="One Course"
-                            style="width: 48px; aspect-ratio:1" />
-                        <span style="font-size: 1.4rem; font-weight: 600;">One Course</span>
-                    </div>
+                    <?php $__currentLoopData = $collaborations3; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $collaboration): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div
+                            style="margin-right: 32px; width: 20%; aspect-ratio:1;  color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 1rem;">
+                            <img src="<?php echo e($collaboration->logo_image); ?>" alt="<?php echo e($collaboration->logo_name); ?>"
+                                style="width: 48px; height: 48px;" />
+                            <span style="font-size: 1rem; font-weight: 600;"><?php echo e($collaboration->logo_name); ?></span>
+                        </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                 </div>
             </div>
 
@@ -573,39 +453,55 @@
         </div>
     </section>
 
-    <div
-        style="padding: 2rem 6rem; margin-bottom: 4rem; display: flex; justify-content: space-between; align-items: start;">
-        <div style="color: white;">
-            <span
-                style="background-color: #e2e8f0; color: #2b6cb0; padding: 0.5rem 2rem; border-radius: 20px;">UpScale</span>
-            <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Wants To UpScale</h1>
-            <div>
-                <select
-                    style="width: 100%; padding: 1rem; font-size: 1.2rem; border: 1px solid #ccc; border-radius: 5px; margin-top: 1rem;">
-                    <option>Select Your Course</option>
-                    <option>UI/UX Design</option>
-                    <option>Web Development</option>
-                    <option>App Devel opment</option>
-                </select>
-            </div>
-            <div style="margin-top: 2rem;">
-                <button
-                    style="background-color: #f97316; color: black; font-weight: bold; padding: 0.8rem 2rem; border-radius: 20px; cursor: pointer; transition: background 0.2s ease-in-out;">Explore
-                    More →</button>
-            </div>
-        </div>
-        <div style="display:flex; justify-content:end"><img src="./assets/default/img/custom-imgs/pattern3.png"
-                style=" width: 50%" alt="Pattern">
-        </div>
+    <section class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20 py-20">
+        <div class="row align-items-center">
 
-    </div>
+            <div class="col-12 col-lg-6 gap-2">
+                <div style="color: white;">
+                    <span
+                        style="background-color: #e2e8f0; color: #2b6cb0; padding: 0.5rem 2rem; border-radius: 20px;">UpScale</span>
+                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Wants To UpScale</h1>
+                    <div>
+                        <select
+                            style="width: 100%; padding: 1rem; font-size: 1.2rem; border: 1px solid #ccc; border-radius: 5px; margin-top: 1rem;">
+                            <option>Select Your Course</option>
+                            <option>UI/UX Design</option>
+                            <option>Web Development</option>
+                            <option>App Devel opment</option>
+                        </select>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <button
+                            style="background-color: #f97316; color: black; font-weight: bold; padding: 0.8rem 2rem; border-radius: 20px; cursor: pointer; transition: background 0.2s ease-in-out;">Explore
+                            More →</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
+                <div class="position-relative ">
+                    <img src="<?php echo e($home_screen['upscale_banner']); ?>" class="find-instructor-section-hero"
+                        alt="<?php echo e($journey['title']); ?>">
+                    <img src="/assets/default/img/home/circle-4.png" class="find-instructor-section-circle"
+                        alt="circle">
+                    <img src="/assets/default/img/home/dot.png" class="find-instructor-section-dots" alt="dots">
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
 
     
 
     <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9;">
 
         <!-- Section 3 -->
-        <div style="padding: 2rem 6rem; margin-bottom: 4rem; position: relative;">
+        <div class="px-4" style=" margin-bottom: 4rem; position: relative;">
             <div style="position: absolute; right: 0;">
                 <img src="./assets/default/img/custom-imgs/pattern2.png" alt="Pattern">
             </div>
@@ -613,54 +509,21 @@
                 style="display: inline-block; background-color: #2b6cb0; color: white; padding: 0.5rem 2rem; border-radius: 20px; margin-bottom: 1rem;">
                 What we done
             </span>
-            <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold; width: 60%; color:white;">Why People Choose Our Courses
-                    </div>
-                </div>
-                <div style="font-size: 1.5rem; width: 50%;  color:white;">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem beatae repellat aperiam fugiat minima.
-                </div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem;">
-                <div
-                    style="background-color: white; padding: 1rem; border-radius: 10px; text-align: center; transition: background 0.3s ease-in-out;">
-                    <img src="./assets/default/img/custom-imgs/card-icon1.png" alt="Icon 1">
-                    <div style="margin-top: 1rem; font-size: 1.2rem;">Learn UI <div style="font-weight: bold;">
-                            Fundamentals</div>
-                    </div>
-                    <div
-                        style="height: 40px; width: 40px; background-color: #f97316; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto; margin-top: 1rem;">
-                        →</div>
-                </div>
-                <div style="background-color: white; padding: 1rem; border-radius: 10px; text-align: center;">
-                    <img src="./assets/default/img/custom-imgs/card-icon2.png" alt="Icon 2">
-                    <div style="margin-top: 1rem; font-size: 1.2rem;">Master Modern <div style="font-weight: bold;">UI
-                            Trends</div>
-                    </div>
-                    <div
-                        style="height: 40px; width: 40px; background-color: #f97316; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto; margin-top: 1rem;">
-                        →</div>
-                </div>
-                <div style="background-color: white; padding: 1rem; border-radius: 10px; text-align: center;">
-                    <img src="./assets/default/img/custom-imgs/card-icon3.png" alt="Icon 3">
-                    <div style="margin-top: 1rem; font-size: 1.2rem;">4 Mentor <div style="font-weight: bold;">Sessions
+            <div class="container">
+                <div class="row" style="display: flex; justify-content: space-between; margin-top: 1rem;">
+                    <div class="col-12 col-md-4">
+                        <div style="font-size: 2rem; font-weight: bold;  color:white;">Why People Choose Our
+                            Courses
                         </div>
                     </div>
-                    <div
-                        style="height: 40px; width: 40px; background-color: #f97316; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto; margin-top: 1rem;">
-                        →</div>
-                </div>
-                <div style="background-color: white; padding: 1rem; border-radius: 10px; text-align: center;">
-                    <img src="./assets/default/img/custom-imgs/card-icon4.png" alt="Icon 4">
-                    <div style="margin-top: 1rem; font-size: 1.2rem;">Certificate Of <div style="font-weight: bold;">
-                            Completion</div>
+                    <div class="col-12 col-md-8" style="font-size: 1.5rem; width: 50%;  color:white;">
+                        <?php echo e($home_screen['what_we_done_desc']); ?>
+
                     </div>
-                    <div
-                        style="height: 40px; width: 40px; background-color: #f97316; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto; margin-top: 1rem;">
-                        →</div>
                 </div>
             </div>
+
+            
         </div>
 
         <!-- Section 4 -->
@@ -1639,138 +1502,82 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
-    <div
-        style="
-    padding: 0 6rem;
-    margin: 9rem 0;
-    text-align: center;
-    position: relative;
-    color:white
-  ">
-        <span
-            style="
-      padding: 0.5rem 2rem;
-      background-color: #4a90e2; /* Secondary Blue */
-      border-radius: 9999px;
-      display: inline-block;
-    ">
-            Journey
-        </span>
-        <div style="
-      margin-top: 2rem;
-      font-size: 3rem;
-      font-weight: 600;
-    ">
-            Our Student Journey
-        </div>
-        <div
-            style="
-      display: flex;
-      margin-top: 4rem;
-      gap: 3rem;
-      text-align: left;
-      align-items: center;
-    ">
-            <div
-                style="
-        width: 50%;
-        height: 24rem;
-        background-color: white;
-        border-radius: 1rem;
-      ">
+    <section class="container-fluid">
+        <div style=" text-align: center; position: relative; margin: 2rem 0; color:white">
+            <span style="padding: 0.5rem 2rem; border: 1px solid #0073e6; color: #0073e6; border-radius: 999px;">Our
+                Story</span>
+            <div style="margin-top: 2rem; font-size: 2.5rem; font-weight: 600;">Our Student Journey</div>
+            <div style="display: flex;justify-content: space-between;align-items: center;padding: 0 6rem;margin: 8rem 0;">
             </div>
-            <div style="width: 33.333%;">
-                <span
-                    style="
-          font-size: 1.5rem;
-          color: #4a90e2; /* Secondary Blue */
-          display: block;
-        ">
-                    2024
-                </span>
-                <div style="font-size: 2rem; margin-top: 0.5rem;">
-                    Presenting one million Joiner Through Online Ai Course Service
-                </div>
-                <div style="
-          text-align: justify;
-          margin: 1rem 0;
-        ">
-                    Classical Latin literature from 45 BC, making it over 2000 years old.
-                    Richard McClintock, a Latin professor at Hampden Sydney College in
-                    Virginia.
-                </div>
-                <div
-                    style="
-                        display: inline-flex;
-                        background-color: #fbc02d; /* Primary Yellow */
-                        padding: 0.5rem 1rem;
-                        border-radius: 9999px;
-                        align-items: center;
-                        gap: 0.25rem;
-                        color: black;
-                    ">
-                    Join Now →
-                </div>
-            </div>
-        </div>
-        <div style="margin-top: 9rem;height: 20rem;display: flex;flex-direction: column;justify-content: center;">
-            <img src="./assets/default/img/custom-imgs/timeline.png" alt="Timeline" />
-        </div>
-        <div
-            style="position: absolute;z-index: -10;top: 25%;left: 0;display: flex;justify-content: center;align-items: center;inset: 0;width: 100%;height: 100%;background: radial-gradient(circle,#141414c8 20%,#171717 30% /* Primary Blue */);">
-            <img src="./assets/default/img/custom-imgs/mapPattern.png" alt="Map Pattern" />
-        </div>
-    </div>
+            <div class="stats-container " style="margin: 4rem 0;">
+                <div class="container position-relative">
+                    <section
+                        class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
+                                <div class="position-relative ">
+                                    <img src="<?php echo e($journey['banner_image']); ?>" class="find-instructor-section-hero"
+                                        alt="<?php echo e($journey['title']); ?>">
+                                    <img src="/assets/default/img/home/circle-4.png"
+                                        class="find-instructor-section-circle" alt="circle">
+                                    <img src="/assets/default/img/home/dot.png" class="find-instructor-section-dots"
+                                        alt="dots">
 
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 96px; margin-bottom: 64px;">
-        <div style="width: 40%;">
-            <img src="/assets/default/img/custom-imgs/pattern3.png" alt="" style="width: 100%;">
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 gap-2">
+                                <div class="">
+                                    <h2 class="font-36 font-weight-bold text-light"><?php echo e($journey['title'] ?? ''); ?>
+
+                                    </h2>
+                                    <p class="font-16 font-weight-normal text-gray mt-10">
+                                        <?php echo e($journey['description'] ?? ''); ?></p>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="d-none d-md-block"
+                style="margin-top: 9rem; display: flex; justify-content: center; align-items: center;">
+                <img src="<?php echo e($journey['timeline_image'] ?? ''); ?>" alt="" style="width:100%" />
+            </div>
+            <div
+                style="position: absolute; inset: 0; z-index: -10; background: radial-gradient(circle,  #141414c8 20%,
+            #171717 30% /* Primary Blue */); display: flex; justify-content: center; align-items: center;">
+                <img src="/assets/default/img/custom-imgs/mapPattern.png" alt="" />
+            </div>
         </div>
-        <div style="width: 50%; color: white;">
-            <div style="padding: 48px 0;">
-                <span
-                    style="background-color: #1E90FF; color: white; padding: 8px 32px; border-radius: 9999px;">FAQuestions</span>
-                <h1 style="font-size: 40px; font-weight: bold; margin-top: 16px;">Frequently Asked Questions</h1>
-                <h1 style="font-size: 40px; font-weight: bold; margin-top: 16px;">(About AI Study In UI Design)</h1>
-                <h1 style="font-size: 18px; margin-top: 16px;">On The Other Hand, We Denounce With Righteous Indignation
+
+    </section>
+    <div class="container">
+        <div class="row"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 64px;">
+            <div class="col-12 col-md-4" style="width: 40%;">
+                <img src="<?php echo e($home_screen['faq_banner']); ?>" alt="" style="width: 100%;">
+            </div>
+            <div class="col-12 col-md-6 " style="color: white;">
+                <div style="padding: 48px 0;">
+                    <span
+                        style="background-color: #1E90FF; color: white; padding: 8px 32px; border-radius: 9999px;">FAQuestions</span>
+                    <h1 style="font-size: 40px; font-weight: bold; margin-top: 16px;">Frequently Asked Questions</h1>
                     And Dislike</h1>
-                <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
-                    <div>
-                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer; background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
-                            onclick="toggleAccordion(this)">
-                            Human-Computer Interaction (HCI)</h2>
-                        <p
-                            style="display: none;  background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
-                            On
-                            the other hand, we denounce with righteous indignation and dislike men
-                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
-                    </div>
-                    <div>
-                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer;  background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
-                            onclick="toggleAccordion(this)">
-                            Data Visualization and Communication</h2>
-                        <p
-                            style="display: none;background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
-                            On the other hand, we denounce with righteous indignation and dislike men
-                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
-                    </div>
-                    <div>
-                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer;  background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
-                            onclick="toggleAccordion(this)">
-                            Natural Language Processing (NLP)</h2>
-                        <p
-                            style="display: none; background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
-                            On the other hand, we denounce with righteous indignation and dislike men
-                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
-                    </div>
-                    <div>
-                        <h2 style="font-size: 20px; font-weight: bold; cursor: pointer; background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
-                            onclick="toggleAccordion(this)">
-                            What kind of jobs can UI/UX Design skills get me?</h2>
-                        <p
-                            style="display: none; background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
-                            On the other hand, we denounce with righteous indignation and dislike men
-                            who are so beguiled and demoralized by the charms of pleasure of the moment</p>
+                    <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
+                        <?php $__currentLoopData = $faqs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $faq): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div>
+                                <h2 style="font-size: 20px; font-weight: bold; cursor: pointer; background-color: #1E90FF; padding: 1rem 2rem; border-radius:0.4rem"
+                                    onclick="toggleAccordion(this)">
+                                    <?php echo e($faq->question); ?></h2>
+                                <p
+                                    style="display: none;  background-color: white; padding: 1rem 2rem;  border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; color:black">
+                                    <?php echo e($faq->answer); ?></p>
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>

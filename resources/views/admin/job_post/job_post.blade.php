@@ -66,6 +66,7 @@
                                         <th>Id</th>
                                         <th class="text-left">Title</th>
                                         <th class="text-left">Location</th>
+                                        <th class="text-left">Company</th>
                                         <th class="text-left">Status</th>
                                         <th width="120">{{ trans('admin/main.actions') }}</th>
                                     </tr>
@@ -101,15 +102,15 @@
                                             <td class="text-left">
                                                 {{ $user->title }}
                                             </td>
-                                            {{-- <td class="text-left"> --}}
-                                            {{-- {{ dateTimeFormat($user->created_at, 'j M Y | H:i') }} --}}
-                                            {{-- {!! htmlspecialchars_decode($user->description) !!} --}}
-                                            {{-- </td> --}}
+                                            
 
                                             <td class="text-left">
                                                 {{ $user->location }}
 
                                             </td>
+                                            <td class="text-left">
+                                                {{ $user->company->full_name }}
+                                                </td>
                                             <td class="text-left">{{ $user->status }}</td>
                                             <td class="text-center mb-2" width="120">
 

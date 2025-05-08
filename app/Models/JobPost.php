@@ -38,4 +38,5 @@ class JobPost extends Model
     {
         return $query->where('status', 'approved');
     }
+  
 }

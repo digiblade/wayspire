@@ -32,9 +32,9 @@ class CustomController extends Controller
         $users = $query->orderBy('created_at', 'desc')
             ->paginate(10);
         if (auth()->user()->role->is_admin) {
-            $jobs = JobPost::orderBy('created_at', 'desc')->get();
+            $jobs = JobPost::with(['company:id,full_name'])->orderBy('created_at', 'desc')->get();
         } else {
-            $jobs = JobPost::where("company_id", auth()->id())->orderBy('created_at', 'desc')->get();
+            $jobs = JobPost::where("company_id", auth()->id())->with(['company:id,full_name'])->orderBy('created_at', 'desc')->get();
         }
 
 

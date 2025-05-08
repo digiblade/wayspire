@@ -72,6 +72,15 @@
             </a>
         </li>
 
+        <li class="sidenav-item ">
+            <a href="/panel/resume-builder" class="d-flex align-items-center">
+                <span class="sidenav-item-icon mr-10">
+                    <?php echo $__env->make('web.default.panel.includes.sidebar_icons.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                </span>
+                <span class="font-14 text-dark-blue font-weight-500">Resume Builder</span>
+            </a>
+        </li>
+
         <?php if($authUser->isOrganization()): ?>
 
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('panel_organization_instructors')): ?>

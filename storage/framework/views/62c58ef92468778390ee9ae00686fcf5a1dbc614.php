@@ -1,222 +1,201 @@
 <?php $__env->startSection('content'); ?>
-    <div
-        style="
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 4rem 6rem;
-    margin: 4rem 0;
-">
-        <!-- Left Content -->
-        <div style="width: 50%">
-            <div style="color: white">
-                <div style="margin: 0 auto; padding: 3rem 0">
-                    <!-- Highlight Badge -->
-                    <span
-                        style="
-                    background-color: #0073e6;
-                    padding: 0.5rem 2rem;
-                    border-radius: 999px;
-                    color: white;
-                ">
-                        E-Learning Course
-                    </span>
-                    <!-- Main Heading -->
-                    <h1
-                        style="
-                    font-size: 3rem;
-                    font-weight: bold;
-                    margin-top: 3rem;
-                ">
-                        About Our Next Level E-Learning
-                    </h1>
-                    <!-- Subheading -->
-                    <h2 style="font-size: 1.125rem; margin-top: 1rem">
-                        Nunc eu hendrerit turpis. Fusce non lectus sem. In
-                        pellentesque nunc
-                    </h2>
-                    <!-- Steps -->
-                    <div
-                        style="
-                    margin-top: 1.5rem;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1rem;
-                ">
-                        <!-- Step 1 -->
-                        <div
-                            style="
-                        display: flex;
-                        gap: 1rem;
-                        align-items: center;
-                        background-color: #e6f9f3;
-                        padding: 1.5rem;
-                        border-radius: 1rem;
-                        color: #1ab69d;
-                    ">
-                            <div
-                                style="
-                            background-color: white;
-                            border-radius: 50%;
-                            padding: 1rem;
-                        ">
-                                <img src="/assets/default/img/custom-imgs/user-icon.png" alt="User Icon" />
-                            </div>
-                            <div>
-                                <h3
-                                    style="
-                                font-size: 1.25rem;
-                                font-weight: bold;
-                            ">
-                                    Create Account
-                                </h3>
-                                <p>
-                                    Because he will ab hold, uniess but
-                                    through concer,
-                                </p>
+    <div style="display: flex;justify-content: space-between;align-items: center;padding: 0 6rem;margin: 4rem 0;">
+    </div>
+
+    <div class="stats-container " style="margin: 4rem 0;">
+        <div class="container position-relative">
+            <section class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6 gap-2">
+                        <div class="">
+                            <h2 class="font-36 font-weight-bold text-light"><?php echo e($about['title'] ?? ''); ?>
+
+                            </h2>
+                            <p class="font-16 font-weight-normal text-gray mt-10">
+                                <?php echo e($about['description'] ?? ''); ?></p>
+
+                            <div class="mt-35 d-flex align-items-center gap-2">
+                                <div style="margin-top: 1.5rem;display: flex; flex-direction: column; gap: 1rem; ">
+                                    <!-- Step 1 -->
+                                    <div
+                                        style="display: flex;gap: 1rem;align-items: center;background-color: #e6f9f3;padding: 1.5rem;border-radius: 1rem;color: #1ab69d;">
+                                        <div style="background-color: white;border-radius: 50%;padding: 1rem;">
+                                            <img src="/assets/default/img/custom-imgs/user-icon.png" alt="User Icon" />
+                                        </div>
+                                        <div>
+                                            <h3 style="font-size: 1.25rem;font-weight: bold;">
+                                                <?php echo e($about['section_1_title']); ?>
+
+                                            </h3>
+                                            <p>
+                                                <?php echo e($about['section_1_description']); ?>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Step 2 -->
+                                    <div
+                                        style="display: flex;gap: 1rem;align-items: center;background-color: #f4e6ff;padding: 1.5rem;border-radius: 1rem;color: #8e56ff;">
+                                        <div style="background-color: white;border-radius: 50%;padding: 1rem;">
+                                            <img src="/assets/default/img/custom-imgs/file-icon.png" alt="File Icon" />
+                                        </div>
+                                        <div>
+                                            <h3 style="font-size: 1.25rem;font-weight: bold;">
+                                                <?php echo e($about['section_2_title']); ?>
+
+                                            </h3>
+                                            <p>
+                                                <?php echo e($about['section_2_title']); ?>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Step 3 -->
+                                    <div
+                                        style="display: flex;gap: 1rem;align-items: center;background-color: #fff9e6;padding: 1.5rem;border-radius: 1rem;color: #f2b31d;">
+                                        <div style="background-color: white;border-radius: 50%;padding: 1rem;">
+                                            <img src="/assets/default/img/custom-imgs/degree-icon.png" alt="Degree Icon" />
+                                        </div>
+                                        <div>
+                                            <h3 style="font-size: 1.25rem;font-weight: bold; ">
+                                                <?php echo e($about['section_3_title']); ?>
+
+                                            </h3>
+                                            <p>
+                                                <?php echo e($about['section_3_title']); ?>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Button -->
+
+                                </div>
+
                             </div>
                         </div>
-                        <!-- Step 2 -->
-                        <div
-                            style="
-                        display: flex;
-                        gap: 1rem;
-                        align-items: center;
-                        background-color: #f4e6ff;
-                        padding: 1.5rem;
-                        border-radius: 1rem;
-                        color: #8e56ff;
-                    ">
-                            <div
-                                style="
-                            background-color: white;
-                            border-radius: 50%;
-                            padding: 1rem;
-                        ">
-                                <img src="/assets/default/img/custom-imgs/file-icon.png" alt="File Icon" />
-                            </div>
-                            <div>
-                                <h3
-                                    style="
-                                font-size: 1.25rem;
-                                font-weight: bold;
-                            ">
-                                    Register Student Details
-                                </h3>
-                                <p>
-                                    Because he will ab hold, uniess but
-                                    through concer,
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Step 3 -->
-                        <div
-                            style="
-                        display: flex;
-                        gap: 1rem;
-                        align-items: center;
-                        background-color: #fff9e6;
-                        padding: 1.5rem;
-                        border-radius: 1rem;
-                        color: #f2b31d;
-                    ">
-                            <div
-                                style="
-                            background-color: white;
-                            border-radius: 50%;
-                            padding: 1rem;
-                        ">
-                                <img src="/assets/default/img/custom-imgs/degree-icon.png" alt="Degree Icon" />
-                            </div>
-                            <div>
-                                <h3
-                                    style="
-                                font-size: 1.25rem;
-                                font-weight: bold;
-                            ">
-                                    Get Certification
-                                </h3>
-                                <p>
-                                    Because he will ab hold, uniess but
-                                    through concer,
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Button -->
-                        <div>
-                            <a href="#"
-                                style="
-                            display: inline-flex;
-                            align-items: center;
-                            background-color: #fbc02d;
-                            padding: 0.5rem 2rem;
-                            border-radius: 999px;
-                            color: black;
-                            text-decoration: none;
-                        ">
-                                Get Started →
-                            </a>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
+                        <div class="position-relative ">
+                            <img src="<?php echo e($about['banner_image']); ?>" class="find-instructor-section-hero"
+                                alt="<?php echo e($about['title']); ?>">
+                            <img src="/assets/default/img/home/circle-4.png" class="find-instructor-section-circle"
+                                alt="circle">
+                            <img src="/assets/default/img/home/dot.png" class="find-instructor-section-dots" alt="dots">
+
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-        <!-- Right Banner -->
-        <div style="width: 40%">
-            <img src="/assets/default/img/custom-imgs/about-pattern1.png" alt="Banner Pattern"
-                style="width: 100%; height: auto" />
-        </div>
+
     </div>
+
+
+
+
+
     <!-- Section 2 -->
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding: 0 6rem;">
-        <div
-            style="padding: 2rem; background-color: #e6f9f3; border: 1px solid #cce7e3; color: #1AB69D; border-radius: 1rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-            <div style="font-size: 2rem; font-weight: 600;">12.3K</div>
-            <div style="font-weight: 600;">Student Enrolled</div>
-            <img src="path-to-student-icon" alt="" />
-        </div>
-        <div
-            style="padding: 2rem; background-color: #fbe4e4; border: 1px solid #f1bdbd; color: #FF4A4A; border-radius: 1rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-            <div style="font-size: 2rem; font-weight: 600;">12.3K</div>
-            <div style="font-weight: 600;">Student Enrolled</div>
-            <img src="path-to-classroom-icon" alt="" />
-        </div>
-        <div
-            style="padding: 2rem; background-color: #ede3fb; border: 1px solid #d8c5f7; color: #8E56FF; border-radius: 1rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-            <div style="font-size: 2rem; font-weight: 600;">12.3K</div>
-            <div style="font-weight: 600;">Student Enrolled</div>
-            <img src="path-to-like-icon" alt="" />
-        </div>
-        <div
-            style="padding: 2rem; background-color: #fff4d3; border: 1px solid #fce3a6; color: #FFC107; border-radius: 1rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
-            <div style="font-size: 2rem; font-weight: 600;">12.3K</div>
-            <div style="font-weight: 600;">Student Enrolled</div>
-            <img src="path-to-book-icon" alt="" />
+
+    <div class="stats-container  ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 mt-25 mt-lg-0">
+                    <div class="stats-item d-flex flex-column align-items-center text-center py-30 px-5 w-100">
+                        <div class="stat-icon-box teacher">
+                            <img src="/assets/default/img/stats/teacher.svg" alt="" class="img-fluid" />
+                        </div>
+                        <strong class="stat-number mt-10"><?php echo e($homeDefaultStatistics['skillfulTeachersCount']); ?></strong>
+                        <h4 class="stat-title"><?php echo e(trans('home.skillful_teachers')); ?></h4>
+                        <p class="stat-desc mt-10"><?php echo e(trans('home.skillful_teachers_hint')); ?></p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 mt-25 mt-lg-0">
+                    <div class="stats-item d-flex flex-column align-items-center text-center py-30 px-5 w-100">
+                        <div class="stat-icon-box student">
+                            <img src="/assets/default/img/stats/student.svg" alt="" class="img-fluid" />
+                        </div>
+                        <strong class="stat-number mt-10"><?php echo e($homeDefaultStatistics['studentsCount']); ?></strong>
+                        <h4 class="stat-title"><?php echo e(trans('home.happy_students')); ?></h4>
+                        <p class="stat-desc mt-10"><?php echo e(trans('home.happy_students_hint')); ?></p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 mt-25 mt-lg-0">
+                    <div class="stats-item d-flex flex-column align-items-center text-center py-30 px-5 w-100">
+                        <div class="stat-icon-box video">
+                            <img src="/assets/default/img/stats/video.svg" alt="" class="img-fluid" />
+                        </div>
+                        <strong class="stat-number mt-10"><?php echo e($homeDefaultStatistics['liveClassCount']); ?></strong>
+                        <h4 class="stat-title"><?php echo e(trans('home.live_classes')); ?></h4>
+                        <p class="stat-desc mt-10"><?php echo e(trans('home.live_classes_hint')); ?></p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 mt-25 mt-lg-0">
+                    <div class="stats-item d-flex flex-column align-items-center text-center py-30 px-5 w-100">
+                        <div class="stat-icon-box course">
+                            <img src="/assets/default/img/stats/course.svg" alt="" class="img-fluid" />
+                        </div>
+                        <strong class="stat-number mt-10"><?php echo e($homeDefaultStatistics['offlineCourseCount']); ?></strong>
+                        <h4 class="stat-title"><?php echo e(trans('home.offline_courses')); ?></h4>
+                        <p class="stat-desc mt-10"><?php echo e(trans('home.offline_courses_hint')); ?></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+
+
+
+   
+
+
     <!-- Section 3 -->
     <section class="container-fluid">
-        <div style="padding: 6rem 6rem 6rem 6rem; text-align: center; position: relative; margin: 9rem 0; color:white">
+        <div style=" text-align: center; position: relative; margin: 2rem 0; color:white">
             <span style="padding: 0.5rem 2rem; border: 1px solid #0073e6; color: #0073e6; border-radius: 999px;">Our
                 Story</span>
             <div style="margin-top: 2rem; font-size: 2.5rem; font-weight: 600;">Our Student Journey</div>
-            <div style="display: flex; margin-top: 4rem; gap: 3rem; align-items: center; text-align: left;">
-                <div style="width: 50%; height: 24rem; background-color: white; border-radius: 1rem;"></div>
-                <div style="width: 33%;">
-                    <span style="font-size: 1.5rem; color: #0073e6;">2024</span>
-                    <div style="font-size: 2rem;">Presenting one million Joiner Through Online AI Course Service</div>
-                    <div style="text-align: justify; margin: 3rem 0;">
-                        Classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-                        professor at Hampden Sydney College in Virginia.
-                    </div>
-                    <a href="#"
-                        style="display: inline-flex; padding: 0.5rem 2rem; background-color: #FBC02D; border-radius: 999px; color: black; text-decoration: none;">Join
-                        Now →</a>
+            <div style="display: flex;justify-content: space-between;align-items: center;padding: 0 6rem;margin: 8rem 0;">
+            </div>
+            <div class="stats-container " style="margin: 4rem 0;">
+                <div class="container position-relative">
+                    <section class="home-sections home-sections-swiper container find-instructor-section position-relative mb-20">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
+                                <div class="position-relative ">
+                                    <img src="<?php echo e($journey['banner_image']); ?>" class="find-instructor-section-hero"
+                                        alt="<?php echo e($journey['title']); ?>">
+                                    <img src="/assets/default/img/home/circle-4.png" class="find-instructor-section-circle"
+                                        alt="circle">
+                                    <img src="/assets/default/img/home/dot.png" class="find-instructor-section-dots" alt="dots">
+        
+        
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 gap-2">
+                                <div class="">
+                                    <h2 class="font-36 font-weight-bold text-light"><?php echo e($journey['title'] ?? ''); ?>
+
+                                    </h2>
+                                    <p class="font-16 font-weight-normal text-gray mt-10">
+                                        <?php echo e($journey['description'] ?? ''); ?></p>
+        
+        
+                                </div>
+                            </div>
+        
+        
+                        </div>
+                    </section>
                 </div>
             </div>
-            <div style="margin-top: 9rem; display: flex; justify-content: center; align-items: center;">
-                <img src="/assets/default/img/custom-imgs/timeline.png" alt="" style="width:100%" />
+            <div class="d-none d-md-block" style="margin-top: 9rem; display: flex; justify-content: center; align-items: center;">
+                <img src="<?php echo e($journey['timeline_image'] ?? ''); ?>" alt="" style="width:100%" />
             </div>
             <div
                 style="position: absolute; inset: 0; z-index: -10; background: radial-gradient(circle,  #141414c8 20%,

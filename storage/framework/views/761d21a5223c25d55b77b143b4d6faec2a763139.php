@@ -55,7 +55,7 @@
     <div class="d-flex justify-content-end">
         <?php echo $__env->make('web.default.panel.includes.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-        <div class="panel-content">
+        <div class="panel-content bg-light" >
             <?php echo $__env->yieldContent('content'); ?>
         </div>
     </div>
