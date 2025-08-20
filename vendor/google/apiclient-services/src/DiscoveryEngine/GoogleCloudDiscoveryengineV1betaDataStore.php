@@ -20,6 +20,10 @@ namespace Google\Service\DiscoveryEngine;
 class GoogleCloudDiscoveryengineV1betaDataStore extends \Google\Collection
 {
   protected $collection_key = 'solutionTypes';
+  /**
+   * @var bool
+   */
+  public $aclEnabled;
   protected $advancedSiteSearchConfigType = GoogleCloudDiscoveryengineV1betaAdvancedSiteSearchConfig::class;
   protected $advancedSiteSearchConfigDataType = '';
   protected $billingEstimationType = GoogleCloudDiscoveryengineV1betaDataStoreBillingEstimation::class;
@@ -46,6 +50,10 @@ class GoogleCloudDiscoveryengineV1betaDataStore extends \Google\Collection
   protected $documentProcessingConfigDataType = '';
   protected $healthcareFhirConfigType = GoogleCloudDiscoveryengineV1betaHealthcareFhirConfig::class;
   protected $healthcareFhirConfigDataType = '';
+  /**
+   * @var string
+   */
+  public $identityMappingStore;
   /**
    * @var string
    */
@@ -77,6 +85,20 @@ class GoogleCloudDiscoveryengineV1betaDataStore extends \Google\Collection
   protected $workspaceConfigType = GoogleCloudDiscoveryengineV1betaWorkspaceConfig::class;
   protected $workspaceConfigDataType = '';
 
+  /**
+   * @param bool
+   */
+  public function setAclEnabled($aclEnabled)
+  {
+    $this->aclEnabled = $aclEnabled;
+  }
+  /**
+   * @return bool
+   */
+  public function getAclEnabled()
+  {
+    return $this->aclEnabled;
+  }
   /**
    * @param GoogleCloudDiscoveryengineV1betaAdvancedSiteSearchConfig
    */
@@ -202,6 +224,20 @@ class GoogleCloudDiscoveryengineV1betaDataStore extends \Google\Collection
   public function getHealthcareFhirConfig()
   {
     return $this->healthcareFhirConfig;
+  }
+  /**
+   * @param string
+   */
+  public function setIdentityMappingStore($identityMappingStore)
+  {
+    $this->identityMappingStore = $identityMappingStore;
+  }
+  /**
+   * @return string
+   */
+  public function getIdentityMappingStore()
+  {
+    return $this->identityMappingStore;
   }
   /**
    * @param string

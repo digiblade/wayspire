@@ -7837,3 +7837,20 @@
 #60 /Users/akashchourasia/Downloads/__MACOSX/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('/Users/akashcho...')
 #61 {main}
 "} 
+[2025-08-20 17:36:00] development.ERROR: Command "server" is not defined.
+
+Did you mean one of these?
+    make:observer
+    serve {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"server\" is not defined.
+
+Did you mean one of these?
+    make:observer
+    serve at /Volumes/Datagram/__MACOSX/vendor/symfony/console/Application.php:737)
+[stacktrace]
+#0 /Volumes/Datagram/__MACOSX/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find('server')
+#1 /Volumes/Datagram/__MACOSX/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /Volumes/Datagram/__MACOSX/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /Volumes/Datagram/__MACOSX/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /Volumes/Datagram/__MACOSX/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
