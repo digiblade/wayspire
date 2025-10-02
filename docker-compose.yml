@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: e_learning_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 1qaz!QAZ     # CHANGE to a strong password
+      MYSQL_DATABASE: wayspire_db
+      MYSQL_USER: NeroTech
+      MYSQL_PASSWORD: laravelpassword       # CHANGE to a strong password
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-prootpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - appnet
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel-app:latest
+    container_name: e_learning_app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./:/var/www/html
+      - vendor-data:/var/www/html/vendor
+      - storage-data:/var/www/html/storage
+    env_file:
+      - .env
+    networks:
+      - appnet
+
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./:/var/www/html
+    networks:
+      - appnet
+
+volumes:
+  db-data:
+  vendor-data:
+  storage-data:
+  caddy_data:
+  caddy_config:
+
+networks:
+  appnet:
+    driver: bridge

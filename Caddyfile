@@ -1,0 +1,10 @@
+uat.wayspire.co.in {
+    root * /var/www/html/public
+    php_fastcgi e_learning_app:9000
+    file_server
+    encode zstd gzip
+    log {
+      output file /data/caddy/access.log
+      level INFO
+    }
+}
