@@ -1,66 +1,43 @@
 version: "3.8"
 
 services:
-  db:
-    image: mysql:8.0
-    container_name: e_learning_db
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: 1qaz!QAZ     # CHANGE to a strong password
-      MYSQL_DATABASE: wayspire_db
-      MYSQL_USER: NeroTech
-      MYSQL_PASSWORD: laravelpassword       # CHANGE to a strong password
-    volumes:
-      - db-data:/var/lib/mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-prootpassword"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - appnet
-
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel-app:latest
-    container_name: e_learning_app
+    container_name: wayspire_app
     restart: unless-stopped
-    depends_on:
-      db:
-        condition: service_healthy
     volumes:
-      - ./:/var/www/html
-      - vendor-data:/var/www/html/vendor
-      - storage-data:/var/www/html/storage
-    env_file:
-      - .env
-    networks:
-      - appnet
+      - ./:/var/www/html:cached
+    environment:
+      - APP_ENV=production
+      - COMPOSER_ALLOW_SUPERUSER=1
+    depends_on:
+      - db
 
-  caddy:
-    image: caddy:2
-    container_name: caddy
+  web:
+    image: nginx:stable-alpine
+    container_name: wayspire_nginx
     restart: unless-stopped
     ports:
-      - 80:80
-      - 443:443
+      - "127.0.0.1:8080:80"       # bind to localhost only, Apache will proxy to this
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-      - ./:/var/www/html
-    networks:
-      - appnet
+      - ./:/var/www/html:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: wayspire_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: secretroot        # change in production
+      MYSQL_DATABASE: wayspire
+      MYSQL_USER: wayspire
+      MYSQL_PASSWORD: secret
+    volumes:
+      - dbdata:/var/lib/mysql
 
 volumes:
-  db-data:
-  vendor-data:
-  storage-data:
-  caddy_data:
-  caddy_config:
-
-networks:
-  appnet:
-    driver: bridge
+  dbdata:
