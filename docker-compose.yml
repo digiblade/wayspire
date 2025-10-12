@@ -9,12 +9,13 @@ services:
     restart: unless-stopped
     volumes:
       - ./:/var/www/html:cached
+      - ./public/store:/var/www/html/public/store
     environment:
       - APP_ENV=production
       - COMPOSER_ALLOW_SUPERUSER=1
     depends_on:
       - db
-
+    command: ["sh", "-c", "chown -R www-data:www-data /var/www/html/public/store /var/www/html/storage /var/www/html/bootstrap/cache || true && php-fpm"]
   web:
     image: nginx:stable-alpine
     container_name: wayspire_nginx
