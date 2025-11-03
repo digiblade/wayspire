@@ -111,7 +111,8 @@
                             <li style="margin:  10px 0;">24X7 Call</li>
                             <li>Report</li>
                             <li style="margin:  10px 0;">Help Centre</li>
-                            <li>Terms & Conditions</li>
+                            <li><a href="/pages/return-refund-policy">Return & Refund Policy</a></li>
+                            <li  style="margin:  10px 0;"><a href="/pages/terms">Terms and Services</a></li>
 
                         </ul>
                     </div>

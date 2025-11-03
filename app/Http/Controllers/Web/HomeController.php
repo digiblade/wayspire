@@ -119,24 +119,12 @@ class HomeController extends Controller
                 ->pluck('webinar_id')
                 ->toArray();
 
-            $bestSaleWebinars = Webinar::whereIn('id', $bestSaleWebinarsIds)
-                ->where('status', Webinar::$active)
-                ->where('private', false)
-                ->with([
-                    'teacher' => function ($qu) {
-                        $qu->select('id', 'full_name', 'avatar');
-                    },
-                    'reviews' => function ($query) {
-                        $query->where('status', 'active');
-                    },
-                    'sales',
-                    'tickets',
-                    'feature'
-                ])
-                ->get();
 
 
-            $carousel = Webinar::whereIn('id', $bestSaleWebinarsIds)
+            $carousel = Webinar::whereHas('productBadgeContent', function ($q) {
+                $q->where('product_badge_id', 1);
+            })
+
                 ->where('status', Webinar::$active)
                 ->where('private', false)
                 ->with([
