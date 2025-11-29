@@ -442,7 +442,7 @@
 
     $('body').on('click', '.js-course-direct-payment', function (e) {
         const $this = $(this);
-        $this.addClass('loadingbar danger').prop('disabled', true);
+        $this.addClass('loadingbar success').prop('disabled', true);
 
         const $form = $this.closest('form');
         $form.attr('action', '/course/direct-payment');

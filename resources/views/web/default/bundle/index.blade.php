@@ -211,7 +211,7 @@
                                     @endif
 
                                     @if($canSale and !empty(getFeaturesSettings('direct_bundles_payment_button_status')))
-                                        <button type="button" class="btn btn-outline-danger mt-20 js-bundle-direct-payment">
+                                        <button type="button" class="btn btn-outline-success mt-20 js-bundle-direct-payment" style="background:green !important">
                                             {{ trans('update.buy_now') }}
                                         </button>
                                     @endif

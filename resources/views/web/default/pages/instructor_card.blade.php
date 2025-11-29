@@ -27,7 +27,7 @@
             @endif
         </div>
 
-        <h3 class="mt-20 font-16 font-weight-bold text-dark-blue text-center">{{ $instructor->full_name }}</h3>
+        <h3 class="mt-20 font-16 font-weight-bold text-center" style="color: white;">{{ $instructor->full_name }}</h3>
     </a>
 
     <div class="mt-5 font-14 text-gray">
@@ -36,25 +36,25 @@
         @endif
     </div>
 
-    <div class="stars-card d-flex align-items-center mt-10">
+    <div class="stars-card d-flex align-items-center mt-10" style="color: white;">
         @include('web.default.includes.webinar.rate',['rate' => $instructor->rates()])
     </div>
 
     <div class="d-flex align-items-center mt-20">
-        @foreach($instructor->getBadges() as $badge)
+        {{-- @foreach($instructor->getBadges() as $badge)
             <div class="mr-15 mt-5" data-toggle="tooltip" data-placement="bottom" data-html="true" title="{!! (!empty($badge->badge_id) ? nl2br($badge->badge->description) : nl2br($badge->description)) !!}">
                 <img src="{{ !empty($badge->badge_id) ? $badge->badge->image : $badge->image }}" width="32" height="32" alt="{{ !empty($badge->badge_id) ? $badge->badge->title : $badge->title }}">
             </div>
-        @endforeach
+        @endforeach --}}
     </div>
 
     <div class="mt-15">
         @if(!empty($instructor->meeting) and !$instructor->meeting->disabled and !empty($instructor->meeting->amount))
             @if(!empty($instructor->meeting->discount))
-                <span class="font-20 text-primary font-weight-bold">{{ handlePrice($instructor->meeting->amount - (($instructor->meeting->amount * $instructor->meeting->discount) / 100)) }}</span>
-                <span class="font-14 text-gray text-decoration-line-through ml-10">{{ handlePrice($instructor->meeting->amount) }}</span>
+                <span class="font-20 text-primary font-weight-bold" style="color: white !important;">{{ handlePrice($instructor->meeting->amount - (($instructor->meeting->amount * $instructor->meeting->discount) / 100)) }}</span>
+                <span class="font-14 text-gray text-decoration-line-through ml-10" style="color: white  !important;">{{ handlePrice($instructor->meeting->amount) }}</span>
             @else
-                <span class="font-20 text-primary font-weight-500">{{ handlePrice($instructor->meeting->amount) }}</span>
+                <span class="font-20 text-primary font-weight-500" style="color: white !important;">{{ handlePrice($instructor->meeting->amount) }}</span>
             @endif
         @else
             <span class="py-10">&nbsp;</span>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="mt-20 d-flex flex-row align-items-center justify-content-center w-100">
-        <a href="{{ $instructor->getProfileUrl() }}{{ ($canReserve) ? '?tab=appointments' : '' }}" class="btn btn-primary btn-block">
+        <a href="{{ $instructor->getProfileUrl() }}{{ ($canReserve) ? '?tab=appointments' : '' }}" class="btn btn-primary btn-block" class="background:">
             @if($canReserve)
                 {{ trans('public.reserve_a_meeting') }}
             @else

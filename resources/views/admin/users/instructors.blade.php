@@ -212,7 +212,7 @@
                                         <img src="{{ $user->getAvatar() }}" alt="{{ $user->full_name }}">
                                     </figure>
                                     <div class="media-body ml-1">
-                                        <div class="mt-0 mb-1 font-weight-bold">{{ $user->full_name }}</div>
+                                        <div class="mt-0 mb-1 font-weight-bold" style="color:white !important">{{ $user->full_name }}</div>
 
                                         @if($user->mobile)
                                             <div class="text-primary text-small font-600-bold">{{ $user->mobile }}</div>

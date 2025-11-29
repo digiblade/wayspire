@@ -28,7 +28,7 @@
 
                     <style>
                         .carousel-inner img {
-                            height: 400px;
+                            height: 600px;
                             object-fit: cover;
                         }
                     </style>
@@ -56,7 +56,7 @@
                                                 style="margin: 2rem 0">View Courses
                                                 →</a>
                                         </div>
-                                        <img style="width:50%" src="{{ $bestSaleWebinar->getImage() }}" alt="Slide 1">
+                                        <img style="width:50%;" src="{{ $bestSaleWebinar->getImage() }}" alt="Slide 1">
                                     </div>
                                 @endforeach
 
@@ -109,7 +109,7 @@
                             .custom-carousel-caption {
                                 /* position: absolute; */
                                 /* bottom: 10%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 50%; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    left: 50%; */
                                 /* transform: translateX(-50%); */
                                 color: white;
                                 /* text-align: center; */
@@ -562,23 +562,70 @@
             <div class="col-12 col-lg-6 gap-2">
                 <div style="color: white;">
                     <span
-                        style="background-color: #e2e8f0; color: #2b6cb0; padding: 0.5rem 2rem; border-radius: 20px;">UpScale</span>
-                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Wants To UpScale</h1>
+                        style="background-color: #e2e8f0; color: #2b6cb0; padding: 0.5rem 2rem; border-radius: 20px;">UpSkill</span>
+
+                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Want To UpSkill</h1>
+
                     <div>
-                        <select
+                        <select id="courseSelect"
                             style="width: 100%; padding: 1rem; font-size: 1.2rem; border: 1px solid #ccc; border-radius: 5px; margin-top: 1rem;">
-                            <option>Select Your Course</option>
-                            <option>UI/UX Design</option>
-                            <option>Web Development</option>
-                            <option>App Devel opment</option>
+
+                            <option value="">Select Your Course</option>
+
+                            {{-- render categories --}}
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->getUrl() }}">{{ $category->title }}</option>
+                            @endforeach
                         </select>
                     </div>
+
                     <div style="margin-top: 2rem;">
-                        <button
-                            style="background-color: #f97316; color: black; font-weight: bold; padding: 0.8rem 2rem; border-radius: 20px; cursor: pointer; transition: background 0.2s ease-in-out;">Explore
-                            More →</button>
+                        <button id="exploreBtn" disabled
+                            style="background-color: #f97316; opacity: 0.5; color: black; font-weight: bold; padding: 0.8rem 2rem; border-radius: 20px; cursor: not-allowed; transition: background 0.2s ease-in-out;">
+                            Explore More →
+                        </button>
+                    </div>
+
+                    <!-- Simple Toast -->
+                    <div id="toast"
+                        style="position: fixed; bottom: 30px; right: 30px; background: #f97316; color: black; padding: 1rem 1.5rem; border-radius: 10px; display: none; font-weight: bold;">
+                        Please select a course.
                     </div>
                 </div>
+
+                <script>
+                    const select = document.getElementById('courseSelect');
+                    const button = document.getElementById('exploreBtn');
+                    const toast = document.getElementById('toast');
+
+                    select.addEventListener('change', function() {
+                        if (this.value) {
+                            button.disabled = false;
+                            button.style.opacity = "1";
+                            button.style.cursor = "pointer";
+                        } else {
+                            button.disabled = true;
+                            button.style.opacity = "0.5";
+                            button.style.cursor = "not-allowed";
+                        }
+                    });
+
+                    button.addEventListener('click', function() {
+                        if (!select.value) {
+                            showToast();
+                        } else {
+                            window.location.href = select.value;
+                        }
+                    });
+
+                    function showToast() {
+                        toast.style.display = "block";
+                        setTimeout(() => {
+                            toast.style.display = "none";
+                        }, 2000);
+                    }
+                </script>
+
 
             </div>
             <div class="col-12 col-lg-6 mt-20 mt-lg-0 pl-4">
@@ -608,11 +655,12 @@
             <div style="position: absolute; right: 0;">
                 <img src="./assets/default/img/custom-imgs/pattern2.png" alt="Pattern">
             </div>
-            <span
-                style="display: inline-block; background-color: #2b6cb0; color: white; padding: 0.5rem 2rem; border-radius: 20px; margin-bottom: 1rem;">
-                What we done
-            </span>
+
             <div class="container">
+                <span
+                    style="display: inline-block; background-color: #2b6cb0; color: white; padding: 0.5rem 2rem; border-radius: 20px; margin-bottom: 1rem;">
+                    What we've done
+                </span>
                 <div class="row" style="display: flex; justify-content: space-between; margin-top: 1rem;">
                     <div class="col-12 col-md-4">
                         <div style="font-size: 2rem; font-weight: bold;  color:white;">Why People Choose Our
@@ -1426,13 +1474,13 @@
                                         class="btn btn-primary mr-15">{{ $becomeInstructorSection['button1']['title'] }}</a>
                                 @endif
 
-                                @if (
+                                {{-- @if (
                                     !empty($becomeInstructorSection['button2']) and
                                         !empty($becomeInstructorSection['button2']['title']) and
                                         !empty($becomeInstructorSection['button2']['link']))
                                     <a href="{{ empty($authUser) ? '/login' : ($authUser->isUser() ? $becomeInstructorSection['button2']['link'] : '/panel/financial/registration-packages') }}"
-                                        class="btn btn-outline-primary">{{ $becomeInstructorSection['button2']['title'] }}</a>
-                                @endif
+                                        class="btn btn-primary" >{{ $becomeInstructorSection['button2']['title'] }}</a>
+                                @endif --}}
                             </div>
                         </div>
                     </div>

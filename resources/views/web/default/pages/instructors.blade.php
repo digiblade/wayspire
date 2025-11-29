@@ -44,31 +44,31 @@
                     <div class="col-lg-9 d-block d-md-flex align-items-center justify-content-start my-25 my-lg-0">
                         <div class="d-flex align-items-center justify-content-between justify-content-md-center">
                             <label class="mb-0 mr-10 cursor-pointer"
-                                for="available_for_meetings">{{ trans('public.available_for_meetings') }}</label>
+                                for="available_for_meetings" style="color: white;">{{ trans('public.available_for_meetings') }}</label>
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" name="available_for_meetings" class="custom-control-input"
                                     id="available_for_meetings" @if (request()->get('available_for_meetings', null) == 'on') checked="checked" @endif>
-                                <label class="custom-control-label" for="available_for_meetings"></label>
+                                <label class="custom-control-label" for="available_for_meetings" style="color: white;"></label>
                             </div>
                         </div>
 
                         <div
                             class="d-flex align-items-center justify-content-between justify-content-md-center mx-0 mx-md-20 my-20 my-md-0">
                             <label class="mb-0 mr-10 cursor-pointer"
-                                for="free_meetings">{{ trans('public.free_meetings') }}</label>
+                                for="free_meetings" style="color: white;">{{ trans('public.free_meetings') }}</label>
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" name="free_meetings" class="custom-control-input" id="free_meetings"
                                     @if (request()->get('free_meetings', null) == 'on') checked="checked" @endif>
-                                <label class="custom-control-label" for="free_meetings"></label>
+                                <label class="custom-control-label" for="free_meetings" style="color: white;"></label>
                             </div>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-between justify-content-md-center">
-                            <label class="mb-0 mr-10 cursor-pointer" for="discount">{{ trans('public.discount') }}</label>
+                            <label class="mb-0 mr-10 cursor-pointer" for="discount" style="color: white;">{{ trans('public.discount') }}</label>
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" name="discount" class="custom-control-input" id="discount"
                                     @if (request()->get('discount', null) == 'on') checked="checked" @endif>
-                                <label class="custom-control-label" for="discount"></label>
+                                <label class="custom-control-label" for="discount" style="color: white;"></label>
                             </div>
                         </div>
 
@@ -143,7 +143,7 @@
             <section class="mt-30 pt-30">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h2 class="font-24 text-dark-blue">{{ trans('site.best_rated_instructors') }}</h2>
+                        <h2 class="font-24 text-dark-blue" style="color: white;">{{ trans('site.best_rated_instructors') }}</h2>
                         <span class="font-14 text-gray">{{ trans('site.best_rated_instructors_subtitle') }}</span>
                     </div>
 
@@ -181,7 +181,7 @@
             <section class="mt-50 pt-50">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h2 class="font-24 text-dark-blue">{{ trans('site.top_sellers') }}</h2>
+                        <h2 class="font-24 text-dark-blue" style="color: white;">{{ trans('site.top_sellers') }}</h2>
                         <span class="font-14 text-gray">{{ trans('site.top_sellers_subtitle') }}</span>
                     </div>
 

@@ -273,7 +273,8 @@
 
                                     @if ($canSale and !empty(getFeaturesSettings('direct_classes_payment_button_status')))
                                         <button type="button"
-                                            class="btn btn-outline-danger mt-20 js-course-direct-payment">
+                                            class="btn btn-success text-green mt-20 js-course-direct-payment"
+                                            style="color:green;border-color: green">
                                             {{ trans('update.buy_now') }}
                                         </button>
                                     @endif

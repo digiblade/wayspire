@@ -31,7 +31,7 @@
             $invalidChannels = [];
         @endphp
 
-        <h2 class="section-title">{{ trans('financial.select_a_payment_gateway') }}</h2>
+        <h2 class="section-title" style="color:white">{{ trans('financial.select_a_payment_gateway') }}</h2>
 
         <form action="/payments/payment-request" method="post" class=" mt-25">
             {{ csrf_field() }}
@@ -46,7 +46,7 @@
                                 <label for="{{ $paymentChannel->title }}" class="rounded-sm p-20 p-lg-45 d-flex flex-column align-items-center justify-content-center">
                                     <img src="{{ $paymentChannel->image }}" width="120" height="60" alt="">
 
-                                    <p class="mt-30 mt-lg-50 font-weight-500 text-dark-blue">
+                                    <p class="mt-30 mt-lg-50 font-weight-500 " style="color:white">
                                         {{ trans('financial.pay_via') }}
                                         <span class="font-weight-bold font-14">{{ $paymentChannel->title }}</span>
                                     </p>
@@ -65,9 +65,9 @@
                     <label for="offline" class="rounded-sm p-20 p-lg-45 d-flex flex-column align-items-center justify-content-center">
                         <img src="/assets/default/img/activity/pay.svg" width="120" height="60" alt="">
 
-                        <p class="mt-30 mt-lg-50 font-weight-500 text-dark-blue">
+                        <p class="mt-30 mt-lg-50 font-weight-500"  style="color:white">
                             {{ trans('financial.account') }}
-                            <span class="font-weight-bold">{{ trans('financial.charge') }}</span>
+                            <span class="font-weight-bold"  style="color:white">{{ trans('financial.charge') }}</span>
                         </p>
 
                         <span class="mt-5">{{ handlePrice($userCharge) }}</span>

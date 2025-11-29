@@ -92,7 +92,7 @@
     @endphp
 
     <section class="mt-30">
-        <h2 class="section-title">{{ trans('financial.select_the_payment_gateway') }}</h2>
+        <h2 class="section-title" style="color:white !important">{{ trans('financial.select_the_payment_gateway') }} Akash</h2>
 
         <form action="/panel/financial/{{ !empty($editOfflinePayment) ? 'offline-payments/'. $editOfflinePayment->id .'/update' : 'charge' }}" method="post" enctype="multipart/form-data" class="mt-25">
             {{csrf_field()}}
@@ -108,7 +108,7 @@
                             <input type="radio" class="online-gateway" name="gateway" id="{{ $paymentChannel->class_name }}" @if(old('gateway') == $paymentChannel->class_name) checked @endif value="{{ $paymentChannel->class_name }}">
                             <label for="{{ $paymentChannel->class_name }}" class="rounded-sm p-20 p-lg-45 d-flex flex-column align-items-center justify-content-center">
                                 <img src="{{ $paymentChannel->image }}" width="120" height="60" alt="">
-                                <p class="mt-30 font-14 font-weight-500 text-dark-blue">{{ trans('financial.pay_via') }}
+                                <p class="mt-30 font-14 font-weight-500 text-white" style="background-color:white">{{ trans('financial.pay_via') }}
                                     <span class="font-weight-bold">{{ $paymentChannel->title }}</span>
                                 </p>
                             </label>

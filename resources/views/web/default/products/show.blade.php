@@ -162,7 +162,7 @@
                                 @endif
 
                                 @if($productAvailability > 0 and !empty(getFeaturesSettings('direct_products_payment_button_status')))
-                                    <button type="button" class="btn btn-outline-danger mt-20 ml-0 ml-md-10 js-product-direct-payment">
+                                    <button type="button" class="btn btn-outline-success mt-20 ml-0 ml-md-10 js-product-direct-payment">
                                         {{ trans('update.buy_now') }}
                                     </button>
                                 @endif

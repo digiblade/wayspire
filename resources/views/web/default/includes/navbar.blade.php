@@ -20,20 +20,21 @@
 @endphp
 <style>
     .custom-height {
-    height: 70px !important;
-}
+        height: 70px !important;
+    }
 
-@media (max-width: 576px) {
-    .custom-height {
-        height: 30px !important;
+    @media (max-width: 576px) {
+        .custom-height {
+            height: 30px !important;
+        }
+
     }
-    
-}
-@media (max-width: 991px){
-    .navbar-brand img {
-        height: 30px !important;
+
+    @media (max-width: 991px) {
+        .navbar-brand img {
+            height: 30px !important;
+        }
     }
-}
 </style>
 <div id="navbarVacuum"></div>
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="color:white !important">
@@ -43,14 +44,14 @@
             <a class="navbar-brand navbar-order d-flex align-items-center justify-content-center mr-0 {{ (empty($navBtnUrl) and empty($navBtnText)) ? 'ml-auto' : '' }}"
                 href="/">
                 @if (!empty($generalSettings['logo']))
-                    <img src="{{ $generalSettings['logo'] }}" class="img-contain custom-height"  alt="site logo">
+                    <img src="{{ $generalSettings['logo'] }}" class="img-contain custom-height" alt="site logo">
                 @endif
             </a>
             <span> <button class="navbar-toggler navbar-order" type="button" id="navbarToggle">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="mx-lg-30 d-none d-lg-flex flex-grow-1 navbar-toggle-content " id="navbarContent"  >
+                <div class="mx-lg-30 d-none d-lg-flex flex-grow-1 navbar-toggle-content " id="navbarContent">
                     <div class="navbar-toggle-header text-right d-lg-none">
                         <button class="btn-transparent" id="navbarClose" style="color: white">
                             <i data-feather="x" width="32" height="32"></i>
@@ -136,17 +137,34 @@
                         </li> --}}
 
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/jobpost">Career</a>
+                            <a class="nav-link" id="career-link" style="color:white" href="/jobpost">Career</a>
+                        </li>
+                        <style>
+                            .nav-link.active {
+                                background: white;
+                                color: black !important;
+                                padding: 6px 12px;
+                                border-radius: 8px;
+                            }
+                        </style>
+                     
+                        <li class="nav-item">
+                            <a class="nav-link" id="blog" style="color:white" href="/blog">Blogs</a>
                         </li>
 
-                    
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/blog">Blogs</a>
+                            <a class="nav-link" id="about" style="color:white" href="/about-us">About Us</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/about-us">About Us</a>
-                        </li>
+                           <script>
+                            const currentURL = window.location.href;
+                            if (currentURL.includes("/jobpost")) {
+                                document.getElementById("career-link").classList.add("active");
+                            } else if (currentURL.includes("/blog")) {
+                                document.getElementById("blog").classList.add("active");
+                            } else if (currentURL.includes("/about-us")) {
+                                document.getElementById("about").classList.add("active");
+                            }
+                        </script>
 
                     </ul>
                 </div>
@@ -169,7 +187,7 @@
 
             {{-- <div class="nav-icons-or-start-live navbar-order d-flex align-items-center justify-content-end"> --}}
 
-                {{-- @if (!empty($navBtnUrl))
+            {{-- @if (!empty($navBtnUrl))
                     <a href="{{ $navBtnUrl }}" class="d-none d-lg-flex btn btn-sm btn-primary nav-start-a-live-btn">
                         {{ $navBtnText }}
                     </a>
@@ -192,7 +210,7 @@
                     @endif
                 @endif --}}
 
-                {{-- <div class="d-none nav-notify-cart-dropdown top-navbar">
+            {{-- <div class="d-none nav-notify-cart-dropdown top-navbar">
                     @include('web.default.includes.shopping-cart-dropdwon')
 
                     <div class="border-left mx-15"></div>
