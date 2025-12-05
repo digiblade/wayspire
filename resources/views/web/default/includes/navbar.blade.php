@@ -36,6 +36,14 @@
         }
     }
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM03014R8K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TM03014R8K');
+</script>
 <div id="navbarVacuum"></div>
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="color:white !important">
     <div class="{{ (!empty($isPanel) and $isPanel) ? 'container-fluid' : 'container-fluid' }}">
